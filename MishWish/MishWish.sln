@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 14 for Web
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MishWish.Api", "MissWish\MishWish.Api.csproj", "{E9F4275E-2633-4783-811D-4FEDF85A89B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MishWish.Api", "MishWish\MishWish.Api.csproj", "{E9F4275E-2633-4783-811D-4FEDF85A89B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MishWish.Web", "MishWish.Web\MishWish.Web.csproj", "{66F72053-72D6-41F1-B0FC-6BBFCAA7B308}"
 EndProject

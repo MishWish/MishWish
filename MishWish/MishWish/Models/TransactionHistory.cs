@@ -26,6 +26,8 @@ namespace MishWish.Models
 
         public DateTime? UpdatedDate { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         [Column(TypeName = "xml")]
         public string MetaData { get; set; }
 

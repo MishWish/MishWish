@@ -33,8 +33,9 @@ namespace MishWish.Models
 
         public bool IsOTPVerified { get; set; }
 
-        [Required]
-        public int AccountTypeCode { get; set; }
+        public int? AccountTypeCode { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

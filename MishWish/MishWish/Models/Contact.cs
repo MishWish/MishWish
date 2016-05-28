@@ -9,8 +9,15 @@ namespace MishWish.Models
         [Key]
         public long ContactId { get; set; }
 
-        public string FullName { get; set; }
+        [Required]
+        [StringLength(256)]
+        public string FirstName { get; set; }
 
+        [Required]
+        [StringLength(256)]
+        public string LastName { get; set; }
+
+        [StringLength(20)]
         public string MobileNumber { get; set; }
 
         public long UserId { get; set; }

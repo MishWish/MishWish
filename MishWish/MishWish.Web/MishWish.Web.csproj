@@ -192,6 +192,8 @@
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
+    <Content Include="Css\img\ic_settings_black_24px.svg" />
+    <Content Include="Css\img\loginFlatAvatar.svg" />
     <Content Include="Css\site.css" />
     <Content Include="Css\skins\_all-skins.min.css" />
     <Content Include="favicon.ico" />
@@ -209,6 +211,7 @@
     <Content Include="Scripts\angular-csp.css" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-material-icons.min.js" />
     <Content Include="Scripts\angular-material.min.js" />
     <Content Include="Scripts\angular-messages.js" />
     <Content Include="Scripts\angular-messages.min.js" />

@@ -2,7 +2,7 @@
 /// <reference path="../scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'MishWishApp.User']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User']);
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
         // By default go to the fist page i.e Home page of app.
         $urlRouterProvider.otherwise('/');
@@ -82,3 +82,4 @@ var MishWishApp;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);
 })(MishWishApp || (MishWishApp = {}));
+//# sourceMappingURL=mish-wish-app.js.map

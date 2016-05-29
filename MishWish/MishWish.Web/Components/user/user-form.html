@@ -1,0 +1,66 @@
+﻿<md-toolbar class="md-warn md-hue-1" md-scroll-shrink>
+    <div class="md-toolbar-tools">MishWish</div>
+</md-toolbar>
+
+<div class="flexbox-parent signup-background">
+    <div layout="row" layout-align="center center">
+
+        <div id="signup">
+            <div class="signup-screen" md-theme="docs-dark">
+                <div class="space-bot text-center">
+                    <h1>Sign up</h1>
+                    <div class="divider"></div>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>First name</label>
+                        <input ng-model="FirstName">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Last Name</label>
+                        <input ng-model="LastName">
+                    </md-input-container>
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>Mobile Number</label>
+                    <input ng-model="MobileNumber">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Email Address</label>
+                    <input type="email" ng-model="EmailAddress">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Date of Birth</label>
+                    <input type="datetime" ng-model="DOB">
+                </md-input-container>
+
+                <md-radio-group layout-gt-sm="row" ng-model="user.group1">
+                    <md-radio-button value="Male" class="md-block" flex-sm-sm>Male</md-radio-button>
+                    <md-radio-button value="Female" class="md-block" flex-gt-sm>Female</md-radio-button>
+                </md-radio-group>
+
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input type="password" ng-model="Password">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Re-Password</label>
+                    <input type="password" ng-model="Re_Password">
+                </md-input-container>
+
+                <section layout="row" layout-gt="column" layout-align="center center">
+                    <md-button class="waves-effect waves-light btn done left">Proceed</md-button>
+                    <md-button class="waves-effect waves-light btn cancel middle">Cancel</md-button>
+                </section>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

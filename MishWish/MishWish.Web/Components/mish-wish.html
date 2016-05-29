@@ -1,11 +1,32 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-    <h1>Layout</h1>
+﻿<link href="../Css/angular-material.min.css" rel="stylesheet" />
+<link href="../Css/site.css" rel="stylesheet" />
 
-</body>
-</html>
+<script src="../Scripts/jquery-1.10.2.min.js"></script>
+<script src="../scripts/angular.min.js"></script>
+<script src="../scripts/angular-aria.min.js"></script>
+<script src="../scripts/angular-animate.min.js"></script>
+<script src="../scripts/angular-resource.min.js"></script>
+<script src="../scripts/angular-route.min.js"></script>
+<script src="../scripts/angular-ui-router.js"></script>
+<script src="../Scripts/bootstrap.min.js"></script>
+
+<script src="../scripts/angular-material.min.js"></script>
+<script src="mish-wish-app.js"></script>
+<script src="user/user-form.js"></script>
+
+<!--MISH WISH APP -->
+<div id="mishWishApp">
+
+    <div ng-controller="MishWishCtrl as mishWishScope">
+
+        <div ui-view="Content">
+
+        </div>
+
+    </div>
+</div>
+
+<!-- BOOTSTRAP ANGULAR APP -->
+<script>
+    angular.bootstrap(document.getElementById("mishWishApp"), ['MishWishApp']);
+</script>

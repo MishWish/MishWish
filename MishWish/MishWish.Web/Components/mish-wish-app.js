@@ -64,5 +64,21 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
             'default': '200' // use shade 200 for default, and keep all other shades the same
         }).dark();
     }]);
-app.controller('MishWishCtrl', function () {
-});
+var MishWishApp;
+(function (MishWishApp) {
+    'use strict';
+    var MishWishCtrl = (function () {
+        function MishWishCtrl($scope, $state) {
+            var mishWishScope = this;
+            // Setup on state chnage.
+            $scope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
+            });
+            // To select left slider panel
+            mishWishScope.onTabChange = function (selectedTab) {
+            };
+        }
+        MishWishCtrl.$inject = ['$scope', '$state'];
+        return MishWishCtrl;
+    }());
+    app.controller('MishWishCtrl', MishWishCtrl);
+})(MishWishApp || (MishWishApp = {}));

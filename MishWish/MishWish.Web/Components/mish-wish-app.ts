@@ -76,9 +76,32 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
 
 }]);
 
-app.controller('MishWishCtrl', function () {
+module MishWishApp {
+    'use strict';
+    class MishWishCtrl {
 
+        static $inject = ['$scope', '$state'];
+        constructor($scope, $state) {
 
-});
+            var mishWishScope = this;
+
+            // Setup on state chnage.
+            $scope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
+
+            });
+
+            // To select left slider panel
+            mishWishScope.onTabChange = function (selectedTab) {
+
+            };
+
+        }
+
+        onTabChange: (selectedTab: number) => void;
+
+    }
+
+    app.controller('MishWishCtrl', MishWishCtrl);
+}
 
 

@@ -9,40 +9,40 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace MissWish.Controllers._1._0
+namespace MishWish.Controllers._1._0
 {
-    public class UserController : ApiController
+    public class ContactController : ApiController
     {
 
         #region CONSTANT
         private const string USER_SUCCESS_MESSAGE = "User was successfully created.";
+        //private const string USER_SUCCESS_MESSAGE = "User was successfully created.";
         private const string USER_SUCCESS_UPDATED = "User was successfully updated.";
         private const string USER_NOT_FOUND = "User not exist.";
         private const string INVALID_PARAMEATER = "Invalid parameter";
-        private const string NOT_FOUND = "User not exist.";
         private const string REQUIRED_FIELD = "Make sure that you have included all required fields in your request.";
         #endregion
 
-
         /// <summary>
-        /// Get all users
+        /// Get All user contact
         /// </summary>
         /// <returns></returns>
-        [Route("api/users")]
         [HttpGet]
-        public List<UserDto> GetUsers()
+        [Route("api/contact")]
+        public List<ContactDto> GetAllContacts()
         {
-            List<UserDto> returnUsers = new List<UserDto>();
+            List<ContactDto> ContactList = new List<ContactDto>();
             try
             {
                 using (var db = new MishWishEntities())
                 {
-                    var users = db.Users;
-                    //Return all users
-                    returnUsers = users.Select(t => new UserDto(t)).ToList();
+                    var users = db.Contacts;
+                    //Get all contact
+                    ContactList = users.Select(u => new ContactDto(u)).ToList();
 
-                    return returnUsers;
+                    return ContactList;
                 }
+
             }
             catch (Exception ex)
             {
@@ -50,33 +50,30 @@ namespace MissWish.Controllers._1._0
             }
         }
 
-            
         /// <summary>
-        /// Get user detail by user id 
+        /// Get contact detail by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("api/user/{id}")]
         [HttpGet]
-        public UserDto GetUserById(long id)
+        [Route("api/contact/{id}")]
+        public ContactDto GetContactById(long id)
         {
-            //Check valid id 
             if (id == 0)
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, INVALID_PARAMEATER));
             try
             {
                 using (var db = new MishWishEntities())
                 {
+                    //Get selected contact
+                    var contact = db.Contacts.FirstOrDefault(x => x.UserId == id);
 
-                    var user = db.Users.FirstOrDefault(x => x.UserId == id && !x.IsDeleted);
+                    if (contact == null)
+                        throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, USER_NOT_FOUND));
 
-                    if (user == null)
-                    {
-                        throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, NOT_FOUND));
-                    }
-                    var userDetail = new UserDto(user);
+                    var contactDetail = new ContactDto(contact);
 
-                    return userDetail;
+                    return contactDetail;
                 }
             }
             catch (Exception ex)
@@ -86,14 +83,9 @@ namespace MissWish.Controllers._1._0
             }
         }
 
-        /// <summary>
-        /// Insert new user
-        /// </summary>
-        /// <param name="userDto"></param>
-        /// <returns></returns>
         [HttpPost]
-        [Route("api/user/{id}")]
-        public HttpResponseMessage PostUser(UserDto userDto)
+        [Route("api/contact/")]
+        public HttpResponseMessage PostContact(ContactDto contactDto)
         {
             if (!ModelState.IsValid)
             {
@@ -104,14 +96,11 @@ namespace MissWish.Controllers._1._0
             {
 
                 // Convert user DTO to entity.
-                var userEntity = userDto.ToEntity();
-
-                userEntity.CreatedDate = DateTime.UtcNow;
-                userEntity.UpdatedDate = DateTime.UtcNow;
+                var contactEntity = contactDto.ToEntity();
 
                 try
                 {
-                    db.Users.Add(userEntity);
+                    db.Contacts.Add(contactEntity);
                     db.SaveChanges();
                 }
                 catch (DbUpdateException)
@@ -123,11 +112,11 @@ namespace MissWish.Controllers._1._0
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, exGeneral.GetType().ToString());
                 }
 
-                // Bind return user DTO.
-                UserDto returnUser = new UserDto(userEntity)
-                {
-                    Message = USER_SUCCESS_MESSAGE
-                };
+                // Bind return contact DTO.
+                ContactDto returnUser = new ContactDto(contactEntity)
+                    {
+                        Message = USER_SUCCESS_MESSAGE
+                    };
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, returnUser);
                 return response;
@@ -135,64 +124,50 @@ namespace MissWish.Controllers._1._0
         }
 
         /// <summary>
-        /// Update user.
+        /// Update contact
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="userDto"></param>
+        /// <param name="contactDto"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("api/user/{id}")]
-        public HttpResponseMessage PutUser(long id,UserDto userDto)
+        [Route("api/contact/{id}")]
+        public HttpResponseMessage PutUser(long id, ContactDto contactDto)
         {
-            //Check valid id
-            if(!userDto.UserId.Equals(id))
+            //Check valid parameter
+            if (!contactDto.ContactId.Equals(id))
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, INVALID_PARAMEATER));
             }
-            if (!ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
-            if (userDto.UserId != id)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
             using (var db = new MishWishEntities())
             {
-
                 // Get original user detail.
-                var fullUser = db.Users.FirstOrDefault(u => u.UserId == id && !u.IsDeleted);
+                var contactUser = db.Contacts.FirstOrDefault(u => u.ContactId == id);
 
-                if (fullUser == null)
+                //Check user is exist or not
+                if (contactUser == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, USER_NOT_FOUND);
                 }
 
                 // Convert user DTO to entity.
-                var userEntity = userDto.ToEntity();
-
-                userEntity.CreatedDate = DateTime.UtcNow;
-                userEntity.UpdatedDate = DateTime.UtcNow;
+                var contactEntity = contactDto.ToEntity();
 
                 try
                 {
-                    //Update selected user
-                    db.Entry(fullUser).CurrentValues.SetValues(userEntity);
+                    db.Entry(contactUser).CurrentValues.SetValues(contactEntity);
                     db.SaveChanges();
                 }
                 catch (DbUpdateException ex)
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Make sure that you have included all required fields in your request.");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, REQUIRED_FIELD);
                 }
                 catch (Exception exGeneral)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, exGeneral.GetType().ToString());
                 }
 
-                // Bind return user DTO.
-                UserDto returnUser = new UserDto(userEntity)
+                // Bind return Contact DTO.
+                ContactDto returnUser = new ContactDto(contactEntity)
                 {
                     Message = USER_SUCCESS_UPDATED
                 };
@@ -203,39 +178,36 @@ namespace MissWish.Controllers._1._0
         }
 
         /// <summary>
-        /// Delete user
+        /// Delete user contact
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        public HttpResponseMessage DeleteUser(long id)
+        public HttpResponseMessage DeleteContact(long id)
         {
             if (id == 0)
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, INVALID_PARAMEATER));
-            
+
             using (var db = new MishWishEntities())
             {
 
                 // Get original user detail.
-                var fullUser = db.Users.FirstOrDefault(u => u.UserId == id && !u.IsDeleted);
+                var contact = db.Contacts.FirstOrDefault(c => c.ContactId == id);
 
-                if (fullUser == null)
+                if (contact == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, USER_NOT_FOUND);
                 }
 
                 // Convert user DTO to entity.
-                fullUser.UpdatedDate = DateTime.UtcNow;
-                fullUser.IsDeleted = true;
-
                 try
                 {
-                    db.Entry(fullUser).State = EntityState.Modified;
+                    db.Entry(contact).State = EntityState.Modified;
                     db.SaveChanges();
                 }
                 catch (DbUpdateException ex)
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Make sure that you have included all required fields in your request.");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, REQUIRED_FIELD);
                 }
                 catch (Exception exGeneral)
                 {
@@ -243,7 +215,7 @@ namespace MissWish.Controllers._1._0
                 }
 
                 // Bind return user DTO.
-                UserDto returnUser = new UserDto(fullUser)
+                ContactDto returnUser = new ContactDto(contact)
                 {
                     Message = USER_SUCCESS_UPDATED
                 };
@@ -252,6 +224,5 @@ namespace MissWish.Controllers._1._0
                 return response;
             }
         }
-
     }
 }

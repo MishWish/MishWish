@@ -182,12 +182,18 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Components\admin\admin-dash.html" />
+    <Content Include="Components\panel\left-panel.html" />
     <Content Include="Components\mish-wish.html" />
+    <Content Include="Components\panel\right-panel.html" />
     <Content Include="Components\user\user-form.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\site.css" />
+    <Content Include="Css\skins\_all-skins.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

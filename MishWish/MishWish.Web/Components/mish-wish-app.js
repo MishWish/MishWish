@@ -9,6 +9,19 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
         $stateProvider.state('MishWishHome', {
             url: "/",
             views: {
+                "LeftPanel@": {
+                    templateUrl: '/Components/panel/left-panel.html',
+                },
+                "Content@": {
+                    templateUrl: '/Components/admin/admin-dash.html',
+                },
+                "RightPanel@": {
+                    templateUrl: '/Components/panel/right-panel.html',
+                },
+            }
+        }).state('MishWishHome.UserRegistration', {
+            url: "/UserRegistration",
+            views: {
                 "Content@": {
                     templateUrl: '/Components/user/user-form.html',
                 }
@@ -53,4 +66,3 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
     }]);
 app.controller('MishWishCtrl', function () {
 });
-//# sourceMappingURL=mish-wish-app.js.map

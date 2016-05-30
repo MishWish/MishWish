@@ -1,0 +1,36 @@
+﻿<div class="flexbox-parent signup-background">
+    <div layout="row" layout-align="center center">
+
+        <div id="signup">
+            <div class="signup-screen" md-theme="docs-dark">
+                <div layout="row">
+                    <img flex src="../Css/img/loginFlatAvatar.svg" width="80" height="80" class="user-image" alt="User Image">
+                </div>
+
+                <div class="space-bot text-center">
+                    <h1>Login</h1>
+                    <div class="divider"></div>
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>Email Address or Mobile number</label>
+                    <input ng-model="MobileNumber">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input type="password" ng-model="Password">
+                </md-input-container>
+
+                <section layout="row" layout-gt="column" layout-align="center center">
+                    <md-button class="waves-effect waves-light btn done center">Login</md-button>
+                    <md-button ng-click="mishWishScope.onSignUp()" class="waves-effect waves-light btn cancel middle">Sign Up</md-button>
+                </section>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

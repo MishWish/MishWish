@@ -9,19 +9,6 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
         $stateProvider.state('MishWishHome', {
             url: "/",
             views: {
-                "SignUp@": {
-                    templateUrl: '/Components/user/user-form.html',
-                },
-                "Login@": {
-                    templateUrl: '../login.html'
-                },
-                "MishWishData@": {
-                    templateUrl: '/Components/mish-wish.html'
-                }
-            }
-        }).state('MishWishHome.MishWishContent', {
-            url: "/MishWish",
-            views: {
                 "LeftPanel@": {
                     templateUrl: '/Components/panel/left-panel.html',
                 },
@@ -31,6 +18,16 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
                 "RightPanel@": {
                     templateUrl: '/Components/panel/right-panel.html',
                 },
+                "Login@": {
+                    templateUrl: '../login.html'
+                }
+            }
+        }).state('MishWishHome.UserRegistration', {
+            url: "/UserRegistration",
+            views: {
+                "SignUp@": {
+                    templateUrl: '/Components/user/user-form.html',
+                }
             }
         });
         $mdThemingProvider.theme('docs-dark', 'default')
@@ -83,10 +80,11 @@ var MishWishApp;
             mishWishScope.onTabChange = function (selectedTab) {
             };
             mishWishScope.onSignUp = function () {
-                $state.go('MishWishHome.MishWishContent');
+                $state.go('MishWishHome.UserRegistration');
                 mishWishScope.IsSignUp = true;
             };
             mishWishScope.onRegisterNewUser = function () {
+                $state.go('MishWishHome');
                 mishWishScope.IsLoginSuccess = true;
                 mishWishScope.IsSignUp = false;
             };
@@ -96,3 +94,4 @@ var MishWishApp;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);
 })(MishWishApp || (MishWishApp = {}));
+//# sourceMappingURL=mish-wish-app.js.map

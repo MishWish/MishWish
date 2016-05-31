@@ -1,50 +1,16 @@
 ﻿@{
-    Layout = null;
+    Layout = null; 
 }
 
 
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-<link href="~/Css/angular-material.min.css" rel="stylesheet" />
-<link href="~/Css/bootstrap.css" rel="stylesheet" />
-<link href="~/Css/site.css" rel="stylesheet" />
-<link href="~/Css/skins/_all-skins.min.css" rel="stylesheet" />
-
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/angular.min.js"></script>
-<script src="~/Scripts/angular-aria.min.js"></script>
-<script src="~/Scripts/angular-animate.min.js"></script>
-<script src="~/Scripts/angular-resource.min.js"></script>
-<script src="~/Scripts/angular-route.min.js"></script>
-<script src="~/Scripts/angular-ui-router.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-
-<script src="~/Scripts/angular-material-icons.min.js"></script>
-<script src="~/Scripts/angular-material.min.js"></script>
-<script src="~/Components/mish-wish-app.js"></script>
-<script src="~/Components/user/user-form.js"></script>
 
 <!-- MISHWISH MODULE -->
-<div id="mishWishApp">
-
-    <!-- MISH WISH CONTROLLER -->
-    <div ng-controller="MishWishCtrl as mishWishScope">
-
-        <!--LOGIN FORM -->
-        <div ng-if="!mishWishScope.IsSignUp && !mishWishScope.IsLoginSuccess" ui-view="Login"></div>
-
-        <!-- SIGNUP FORM -->
-        <div ng-if="mishWishScope.IsSignUp && !mishWishScope.IsLoginSuccess" ui-view="SignUp"></div>
-
-        <!--MISHWISH APP MAIN CONTENT-->
-        <div ng-if="mishWishScope.IsLoginSuccess" ui-view="MishWishData"></div>
-
-    </div>
+<div id="mishwishApp">
 
 </div>
 
-
-<!-- BOOTSTRAP ANGULAR APP -->
 <script>
-    angular.bootstrap(document.getElementById("mishWishApp"), ['MishWishApp']);
+
+
+
 </script>

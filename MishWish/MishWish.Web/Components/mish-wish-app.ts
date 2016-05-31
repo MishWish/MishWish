@@ -4,7 +4,7 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
 
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial','ngMdIcons','MishWishApp.User']);
 
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
@@ -13,19 +13,6 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
 
     $stateProvider.state('MishWishHome', {
         url: "/",
-        views: {
-            "SignUp@": {
-                templateUrl: '/Components/user/user-form.html',
-            },
-            "Login@": {
-                templateUrl: '../login.html'
-            },
-            "MishWishData@": {
-                templateUrl: '/Components/mish-wish.html'
-            }
-        }
-    }).state('MishWishHome.MishWishContent', {
-        url: "/MishWish",
         views: {
             "LeftPanel@": {
                 templateUrl: '/Components/panel/left-panel.html',
@@ -36,6 +23,16 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
             "RightPanel@": {
                 templateUrl: '/Components/panel/right-panel.html',
             },
+            "Login@": {
+                templateUrl:'../login.html'
+            }
+        }
+    }).state('MishWishHome.UserRegistration', {
+        url: "/UserRegistration",
+        views: {
+            "SignUp@": {
+                templateUrl: '/Components/user/user-form.html',
+            }
         }
     })
 
@@ -98,18 +95,20 @@ module MishWishApp {
 
             // To select left slider panel
             mishWishScope.onTabChange = function (selectedTab) {
-
+               
             };
 
             mishWishScope.onSignUp = function () {
-                $state.go('MishWishHome.MishWishContent');
+                $state.go('MishWishHome.UserRegistration');
                 mishWishScope.IsSignUp = true;
             };
 
             mishWishScope.onRegisterNewUser = function () {
+                $state.go('MishWishHome');
                 mishWishScope.IsLoginSuccess = true;
                 mishWishScope.IsSignUp = false;
             }
+
         }
 
         onTabChange: (selectedTab: number) => void;

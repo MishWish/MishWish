@@ -1,114 +1,69 @@
-﻿
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+﻿<!-- TOOL BAR -->
+<div class="sidebar-mini wysihtml5-supported skin-blue-light">
 
-<link href="../Css/angular-material.min.css" rel="stylesheet" />
-<link href="../Css/site.css" rel="stylesheet" />
-<link href="../Css/bootstrap.css" rel="stylesheet" />
+    <header class="main-header">
 
-<link href="../Css/skins/_all-skins.min.css" rel="stylesheet" />
+        <!-- LOGO -->
+        <a class="logo">
+            <!-- SITE NAME-->
+            <span class="logo-lg"><b>Mishwish</b></span>
+        </a>
 
-<script src="../Scripts/jquery-1.10.2.min.js"></script>
-<script src="../Scripts/angular.min.js"></script>
-<script src="../Scripts/angular-aria.min.js"></script>
-<script src="../Scripts/angular-animate.min.js"></script>
-<script src="../Scripts/angular-resource.min.js"></script>
-<script src="../Scripts/angular-route.min.js"></script>
-<script src="../Scripts/angular-ui-router.js"></script>
-<script src="../Scripts/bootstrap.min.js"></script>
-<script src="../Scripts/angular-material-icons.min.js"></script>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="user ">
+                        <a href="#">
+                            <img src="../Css/img/loginFlatAvatar.svg" width="22" height="22" class="user-image" alt="User Image">
+                            <span class="hidden-xs">Nikhil Tambave</span>
+                        </a>
 
-<script src="../scripts/angular-material.min.js"></script>
-<script src="mish-wish-app.js"></script>
-<script src="user/user-form.js"></script>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><ng-md-icon icon="settings" size="23"></ng-md-icon> </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="../Css/img/loginFlatAvatar.svg" width="30" height="30" class="user-image" alt="User Image">
+                                <p>
+                                    Nikhil Tamabave - Web Developer
+                                </p>
+                            </li>
 
-<!--MISH WISH APP -->
-<div id="mishWishApp">
-
-    <div ng-controller="MishWishCtrl as mishWishScope">
-
-        <!--DISPLAY CONTENT AFTER LOGIN-->
-        <div ng-if="mishWishScope.IsLoginSuccess">
-
-            <!-- TOOL BAR -->
-            <div class="sidebar-mini wysihtml5-supported skin-blue-light">
-
-                <header class="main-header">
-
-                    <!-- LOGO -->
-                    <a class="logo">
-                        <!-- SITE NAME-->
-                        <span class="logo-lg"><b>Mishwish</b></span>
-                    </a>
-
-                    <!-- Header Navbar: style can be found in header.less -->
-                    <nav class="navbar navbar-static-top">
-                        <div class="navbar-custom-menu">
-                            <ul class="nav navbar-nav">
-                                <!-- User Account: style can be found in dropdown.less -->
-                                <li class="user ">
-                                    <a href="#">
-                                        <img src="../Css/img/loginFlatAvatar.svg" width="22" height="22" class="user-image" alt="User Image">
-                                        <span class="hidden-xs">Nikhil Tambave</span>
-                                    </a>
-
-                                </li>
-                                <!-- Control Sidebar Toggle Button -->
-                                <li class="dropdown user user-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><ng-md-icon icon="settings" size="23"></ng-md-icon> </a>
-                                    <ul class="dropdown-menu">
-                                        <!-- User image -->
-                                        <li class="user-header">
-                                            <img src="../Css/img/loginFlatAvatar.svg" width="30" height="30" class="user-image" alt="User Image">
-                                            <p>
-                                                Nikhil Tamabave - Web Developer
-                                            </p>
-                                        </li>
-
-                                        <!-- Menu Footer-->
-                                        <li class="user-footer">
-                                            <div class="pull-left">
-                                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                            </div>
-                                            <div class="pull-right">
-                                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </header>
-
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
+        </nav>
+    </header>
 
-            <!-- LEFT,RIGHT PANEL AND CONTENT OF TABS -->
-            <div layout="row">
-
-                <!-- LEFT SIDE PANEL -->
-                <div flex="20" ui-view="LeftPanel"></div>
-
-                <!-- CONTENT OF TABS -->
-                <div flex="60" ui-view="Content"></div>
-
-                <!--RIGHT SIDE PANEL -->
-                <!--<div flex="20" ui-view="RightPanel"></div>-->
-
-            </div>
-
-        </div>
-
-        <!--LOGIN FORM -->
-        <div ng-if="!mishWishScope.IsSignUp && !mishWishScope.IsLoginSuccess" ui-view="Login"></div>
-
-        <!-- SIGNUP FORM -->
-        <div ng-if="mishWishScope.IsSignUp && !mishWishScope.IsLoginSuccess" ui-view="SignUp"></div>
-
-
-    </div>
 </div>
 
-<!-- BOOTSTRAP ANGULAR APP -->
-<script>
-    angular.bootstrap(document.getElementById("mishWishApp"), ['MishWishApp']);
-</script>
+<!-- LEFT,RIGHT PANEL AND CONTENT OF TABS -->
+<div layout="row">
+
+    <!-- LEFT SIDE PANEL -->
+    <div flex="20" ui-view="LeftPanel"></div>
+
+    <!-- CONTENT OF TABS -->
+    <div flex="60" ui-view="Content"></div>
+
+    <!--RIGHT SIDE PANEL -->
+    <div flex="20" ui-view="RightPanel"></div>
+
+</div>
+
+
+

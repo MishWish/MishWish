@@ -28,7 +28,7 @@ namespace MissWish.Controllers._1._0
         /// Get all users
         /// </summary>
         /// <returns></returns>
-        [Route("api/users")]
+        [Route("api/user")]
         [HttpGet]
         public List<UserDto> GetUsers()
         {
@@ -92,7 +92,7 @@ namespace MissWish.Controllers._1._0
         /// <param name="userDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("api/user/{id}")]
+        [Route("api/user/{userDto}")]
         public HttpResponseMessage PostUser(UserDto userDto)
         {
             if (!ModelState.IsValid)

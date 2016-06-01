@@ -1,6 +1,7 @@
-﻿using Microsoft.Owin.Security.OAuth;
+﻿using MishWish.App_Start;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace MissWish
 {
@@ -8,13 +9,19 @@ namespace MissWish
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-            // Configure Web API to use only bearer token authentication.
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+
+            //var cors = new EnableCorsAttribute()
+
+            var cors = new EnableCorsAttribute("http://localhost:49573, http://localhost:21723,", "*", "*");
+
+            // Other configuration omitted
+            config.EnableCors(cors);
+            cors.SupportsCredentials = true;
+            config.SetCorsPolicyProviderFactory(new MishWishPolicyProviderFactory());
 
             // Web API configuration and services
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));

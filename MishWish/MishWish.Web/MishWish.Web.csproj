@@ -1050,6 +1050,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Components\mish-wish-app.ts" />
+    <TypeScriptCompile Include="Components\Services\mish-wish-api-service.ts" />
     <TypeScriptCompile Include="Components\user\user-form.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

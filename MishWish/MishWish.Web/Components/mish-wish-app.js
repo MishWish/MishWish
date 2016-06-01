@@ -94,4 +94,3 @@ var MishWishApp;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);
 })(MishWishApp || (MishWishApp = {}));
-//# sourceMappingURL=mish-wish-app.js.map

@@ -190,6 +190,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="Css\angular-material-sidemenu.css" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\img\ic_settings_black_24px.svg" />
@@ -212,6 +213,7 @@
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
     <Content Include="Scripts\angular-material-icons.min.js" />
+    <Content Include="Scripts\angular-material-sidemenu.js" />
     <Content Include="Scripts\angular-material.min.js" />
     <Content Include="Scripts\angular-messages.js" />
     <Content Include="Scripts\angular-messages.min.js" />

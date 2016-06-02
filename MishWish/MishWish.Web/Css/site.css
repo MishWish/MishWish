@@ -5012,3 +5012,12 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+
+
+/* Overwrite side nav css */
+md-sidenav.md-locked-open, 
+md-sidenav.md-locked-open-remove.md-closed, md-sidenav.md-locked-open.md-closed, md-sidenav.md-locked-open.md-closed.md-sidenav-left, md-sidenav.md-locked-open.md-closed.md-sidenav-right {
+    position:absolute;
+}
+

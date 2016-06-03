@@ -37,7 +37,7 @@ namespace MissWish.Controllers._1._0
             {
                 using (var db = new MishWishEntities())
                 {
-                    var users = db.Users;
+                    var users = db.Users.ToList();
                     //Return all users
                     returnUsers = users.Select(t => new UserDto(t)).ToList();
 
@@ -92,7 +92,7 @@ namespace MissWish.Controllers._1._0
         /// <param name="userDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("api/user/{userDto}")]
+        [Route("api/user")]
         public HttpResponseMessage PostUser(UserDto userDto)
         {
             if (!ModelState.IsValid)
@@ -114,7 +114,7 @@ namespace MissWish.Controllers._1._0
                     db.Users.Add(userEntity);
                     db.SaveChanges();
                 }
-                catch (DbUpdateException)
+                catch (DbUpdateException ex)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, REQUIRED_FIELD);
                 }
@@ -154,11 +154,6 @@ namespace MissWish.Controllers._1._0
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (userDto.UserId != id)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
             using (var db = new MishWishEntities())
             {
 
@@ -173,12 +168,12 @@ namespace MissWish.Controllers._1._0
                 // Convert user DTO to entity.
                 var userEntity = userDto.ToEntity();
 
-                userEntity.CreatedDate = DateTime.UtcNow;
+                userEntity.CreatedDate = fullUser.CreatedDate;
                 userEntity.UpdatedDate = DateTime.UtcNow;
 
                 try
                 {
-                    //Update selected user
+                    // Update selected user
                     db.Entry(fullUser).CurrentValues.SetValues(userEntity);
                     db.SaveChanges();
                 }

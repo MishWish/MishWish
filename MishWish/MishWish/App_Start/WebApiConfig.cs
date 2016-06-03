@@ -1,5 +1,4 @@
-﻿using MishWish.App_Start;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -20,8 +19,6 @@ namespace MissWish
 
             // Other configuration omitted
             config.EnableCors(cors);
-            cors.SupportsCredentials = true;
-            config.SetCorsPolicyProviderFactory(new MishWishPolicyProviderFactory());
 
             // Web API configuration and services
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));

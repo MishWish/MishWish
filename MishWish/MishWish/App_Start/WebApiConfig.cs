@@ -15,7 +15,7 @@ namespace MissWish
 
             //var cors = new EnableCorsAttribute()
 
-            var cors = new EnableCorsAttribute("*", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:49763/", "*", "*");
 
             // Other configuration omitted
             config.EnableCors(cors);

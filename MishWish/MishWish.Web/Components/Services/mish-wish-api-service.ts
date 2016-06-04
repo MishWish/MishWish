@@ -9,7 +9,6 @@
 
         // To pass Api call's with credentials
         $httpProvider.defaults.withCredentials = true;
-
     }]);
 
     // Dependency Injection
@@ -24,7 +23,7 @@
         };
 
 
-        var ApiUrl = "locahost:";
+        var ApiUrl = "http://localhost:49573/api/";
 
         // Get service URL form js session storage.
         if (sessionStorage.getItem("apiURL")) {

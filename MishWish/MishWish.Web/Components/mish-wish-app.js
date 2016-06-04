@@ -2,7 +2,7 @@
 /// <reference path="../scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'ngMaterialSidemenu']);
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
         // By default go to the fist page i.e Home page of app.
         $urlRouterProvider.otherwise('/');
@@ -71,7 +71,7 @@ var MishWishApp;
 (function (MishWishApp) {
     'use strict';
     var MishWishCtrl = (function () {
-        function MishWishCtrl($scope, $state) {
+        function MishWishCtrl($scope, $state, ApiService) {
             var mishWishScope = this;
             // Setup on state chnage.
             $scope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
@@ -89,8 +89,9 @@ var MishWishApp;
                 mishWishScope.IsSignUp = false;
             };
         }
-        MishWishCtrl.$inject = ['$scope', '$state'];
+        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService'];
         return MishWishCtrl;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);
 })(MishWishApp || (MishWishApp = {}));
+//# sourceMappingURL=mish-wish-app.js.map

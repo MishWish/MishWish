@@ -15,7 +15,7 @@
             GetUser: null,
             PutUser: null,
         };
-        var ApiUrl = "locahost:";
+        var ApiUrl = "http://localhost:49573/api/";
         // Get service URL form js session storage.
         if (sessionStorage.getItem("apiURL")) {
             ApiUrl = sessionStorage.getItem("apiURL");
@@ -27,3 +27,4 @@
         return theService;
     }
 })();
+//# sourceMappingURL=mish-wish-api-service.js.map

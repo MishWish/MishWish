@@ -4,7 +4,7 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
 
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial','ngMdIcons','MishWishApp.User']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User','MishWishApp.ApiService','ngMaterialSidemenu']);
 
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
@@ -83,8 +83,8 @@ module MishWishApp {
     'use strict';
     class MishWishCtrl {
 
-        static $inject = ['$scope', '$state'];
-        constructor($scope, $state) {
+        static $inject = ['$scope', '$state','ApiService'];
+        constructor($scope, $state, ApiService) {
 
             var mishWishScope = this;
 
@@ -116,6 +116,7 @@ module MishWishApp {
         onRegisterNewUser: () => void;
         IsSignUp: boolean;
         IsLoginSuccess: boolean;
+        
 
     }
 

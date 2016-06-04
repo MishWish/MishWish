@@ -5012,3 +5012,11 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+
+.md-primary
+{
+background:#00B9F5!important;
+color :#fff!important;
+}
+

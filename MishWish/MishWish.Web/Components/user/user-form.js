@@ -28,10 +28,8 @@ var UserApp;
             }
             // Create new user.
             userScope.CreateUser = function (userDto) {
-                debugger;
                 ApiService.PostUser(userDto)
                     .success(function (data, status, headers, config) {
-                    debugger;
                 })
                     .error(function (data, status, headers, config) {
                     // Error occur while update knowledge Asset.

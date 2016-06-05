@@ -4,6 +4,8 @@ var MishWishClass;
     var MishWishClassVM = (function () {
         function MishWishClassVM(mishWish) {
             this.UserList = mishWish.UserList;
+            this.OnTabChange = mishWish.OnTabChange;
+            this.SelectedTab = mishWish.SelectedTab;
         }
         return MishWishClassVM;
     }());

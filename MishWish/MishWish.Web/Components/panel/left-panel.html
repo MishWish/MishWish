@@ -2,26 +2,26 @@
 
 <div class="main-container" layout="row" flex>
     <md-sidenav class="main-sidenav md-sidenav-left" md-theme="md-cyan-theme" md-component-id="navigation-drawer" md-is-locked-open="true" layout="column">
-        <md-content md-scroll-y flex layout="column">
+        <md-content md-scroll-y flex layout="column" class="leftPanelMarginTop">
             <md-sidemenu locked="true">
                 <md-sidemenu-group>
                     <md-subheader class="md-no-sticky">Menu</md-subheader>
                    
-                        <md-sidemenu-content md-heading="Contacts" md-arrow="true">
+                        <md-sidemenu-content md-heading="Contacts" ng-click="mishWishScope.MishWishVM.OnTabChange(1)">
                         <!--<md-icon class="material-icons">face</md-icon>-->
                         </md-sidemenu-content>
 
-                        <md-sidemenu-content md-heading="DTH" md-arrow="true">
+                        <md-sidemenu-content md-heading="DTH" ng-click="mishWishScope.MishWishVM.OnTabChange(2)">
                         </md-sidemenu-content>
-                        <md-sidemenu-content md-heading="Data card" md-arrow="true">
+                        <md-sidemenu-content md-heading="Data card">
                         </md-sidemenu-content>
-                        <md-sidemenu-content md-heading="Electricity Bill" md-arrow="true">
+                        <md-sidemenu-content md-heading="Electricity Bill">
                         </md-sidemenu-content>
-                        <md-sidemenu-content md-heading="Gas Bill" md-arrow="true">
+                        <md-sidemenu-content md-heading="Gas Bill">
                         </md-sidemenu-content>
-                        <md-sidemenu-content md-heading="Metro Card" md-arrow="true">
+                        <md-sidemenu-content md-heading="Metro Card">
                         </md-sidemenu-content>
-                        <md-sidemenu-content md-heading="Landline or Broadband" md-arrow="true">
+                        <md-sidemenu-content md-heading="Landline or Broadband">
                         </md-sidemenu-content>
                         </md-sidemenu-group>
 

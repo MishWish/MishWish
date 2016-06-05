@@ -199,6 +199,7 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\img\ic_settings_black_24px.svg" />
     <Content Include="Css\img\loginFlatAvatar.svg" />
+    <Content Include="Css\img\Mish call logo.png" />
     <Content Include="Css\site.css" />
     <Content Include="Css\skins\_all-skins.min.css" />
     <Content Include="favicon.ico" />
@@ -1044,7 +1045,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-	<Folder Include="Components\contact\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

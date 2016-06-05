@@ -5015,17 +5015,30 @@ table.text-center th {
 
 
 
+
+
 /* Overwrite side nav css */
 md-sidenav.md-locked-open, 
 md-sidenav.md-locked-open-remove.md-closed, md-sidenav.md-locked-open.md-closed, md-sidenav.md-locked-open.md-closed.md-sidenav-left, md-sidenav.md-locked-open.md-closed.md-sidenav-right {
     position:absolute;
 }
 
-
-
-.md-primary
-{
-background:#00B9F5!important;
-color :#fff!important;
+.ContentPadding {
+    padding-left:2%;
 }
 
+a.md-button.md-md-cyan-theme-theme:not([disabled]):hover, .md-button.md-md-cyan-theme-theme:not([disabled]):hover {
+    background-color: #00acc1;
+}
+
+md-content.md-md-cyan-theme-theme{
+background-color: #00bcd4;
+}
+
+.leftPanelMarginTop {
+    margin-top: 5%;
+}
+
+md-toolbar.md-md-cyan-theme-theme {
+    background-color:#D3ECEC;
+}

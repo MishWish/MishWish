@@ -39,14 +39,19 @@
         <!--DISPLAY CONTENT AFTER LOGIN-->
         <div ng-if="mishWishScope.IsLoginSuccess">
 
+            <!-- TOOL BAR -->
             <md-toolbar class="main-header md-whiteframe-3dp">
                 <div class="md-toolbar-tools">
-                    <img src="../Css/img/Mish call logo.png" width="50" height="50"/>
-                    <span class="text-orange">MishWish</span>
+                    <div flex="15" layout="row" layout-align="center center">
+                        <img src="../Css/img/Mish call logo.png" width="110" height="50" />
+                    </div>
                     <span flex></span>
-                    <md-button class="md-icon-button">
-                        <ng-md-icon icon="settings" size="25"></ng-md-icon>
-                    </md-button>
+                    <div flex="5" layout="row" layout-align="center center">
+                        <md-button class="md-icon-button">
+                            <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+                        </md-button>
+                    </div>
+
                 </div>
             </md-toolbar>
 
@@ -60,7 +65,7 @@
                 <div flex="60" class="ContentPadding" md-theme="default" ui-view="Content"></div>
 
                 <!--RIGHT SIDE PANEL -->
-                <!--<div flex="20" ui-view="RightPanel"></div>-->
+                <div flex="20" ui-view="RightPanel"></div>
 
             </div>
 

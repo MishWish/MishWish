@@ -43,4 +43,3 @@ var UserApp;
     }());
     userApp.controller('UserCtrl', UserCtrl);
 })(UserApp || (UserApp = {}));
-//# sourceMappingURL=user-form.js.map

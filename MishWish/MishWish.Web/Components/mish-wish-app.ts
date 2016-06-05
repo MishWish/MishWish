@@ -18,9 +18,9 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
             "LeftPanel@": {
                 templateUrl: '/Components/panel/left-panel.html',
             },
-            "Content@": {
-                templateUrl: '/Components/admin/admin-dash.html',
-            },
+            //"MishWishContent@": {
+            //    templateUrl: '/Components/mish-wish.html',
+            //},
             "RightPanel@": {
                 templateUrl: '/Components/panel/right-panel.html',
             },
@@ -29,28 +29,28 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
             }
         }
     }).state('MishWishHome.UserRegistration', {
-        url: "/UserRegistration",
+        url: "UserRegistration",
         views: {
             "SignUp@": {
                 templateUrl: '/Components/user/user-form.html',
             }
         }
     }).state('MishWishHome.Contact', {
-        url: "/Contact",
+        url: "Contact",
         views: {
             "Content@": {
                 templateUrl: '/Components/contact/Contact.html',
             }
         }
     }).state('MishWishHome.DTH', {
-        url: "/DTH",
+        url: "DTH",
         views: {
             "Content@": {
                 templateUrl: '/Components/dth/Dth_form.html',
             }
         }
     }).state('MishWishHome.AddToMoney', {
-        url: "/AddToMoney",
+        url: "AddToMoney",
         views: {
             "Content@": {
                 templateUrl: '/Components/addToMoney/addToMoney.html',
@@ -155,7 +155,7 @@ module MishWishApp {
             };
 
             mishWishScope.onRegisterNewUser = function () {
-                $state.go('MishWishHome');
+                $state.go('MishWishHome.Contact');
                 mishWishScope.IsLoginSuccess = true;
                 mishWishScope.IsSignUp = false;
             }

@@ -33,6 +33,9 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
         $mdThemingProvider.theme('docs-dark', 'default')
             .primaryPalette('cyan')
             .dark();
+        $mdThemingProvider.theme('md-cyan-theme', 'default')
+            .primaryPalette('blue')
+            .backgroundPalette('blue');
         $mdThemingProvider.definePalette('amazingPaletteName', {
             '50': 'ffebee',
             '100': 'ffcdd2',

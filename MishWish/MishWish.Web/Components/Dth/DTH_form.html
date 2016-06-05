@@ -1,0 +1,121 @@
+﻿<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+</head>
+<body ng-app="BlankApp">
+
+    <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+            <span>DTH</span>
+        </div>
+    </md-toolbar>
+    <md-content layout-padding>
+        <div>
+            <form name="userForm">
+                <div layout-gt-sm="row">
+
+                    <md-autocomplete id="selectOperator" ng-disabled="ctrl.isDisabled"
+                                     md-no-cache=""
+                                     md-selected-item=""
+                                     md-search-text-change=""
+                                     md-search-text=""
+                                     md-selected-item-change=""
+                                     md-items="Text"
+                                     md-item-text="Text"
+                                     md-min-length="0"
+                                     placeholder="Select Operator">
+                        <md-item-template>
+                            <!--<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">text</span>-->
+                        </md-item-template>
+                        <md-not-found>
+
+                        </md-not-found>
+                    </md-autocomplete>
+                    <div flex="5" hide-xs hide-sm>
+                        <!-- Spacer //-->
+                    </div>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Eneter DTH No.</label>
+                        <input ng-model="theMax">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-button class="md-raised md-primary">ADD</md-button>
+                    </md-input-container>
+                </div>
+                <div>
+                </div>
+            </form>
+        </div>
+
+        <div layout-gt-sm="row" layout="column">
+            <div flex-gt-sm="100" flex>
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>DTH Detail</span>
+                    </div>
+                </md-toolbar>
+            </div>
+        </div>
+            <div class="ng-scope layout-row">
+            <div layout-gt-sm="row" layout="column">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Videocon</span>
+                            <span class="md-subhead">*****123</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button class="md-primary btn-block mt10 md-button md-default-theme">Edit</md-button>
+                        <md-button class="md-primary btn-block mt10 md-button md-default-theme">Delete</md-button>
+                        <md-button class="md-primary btn-block mt10 md-button md-default-theme">Recharge</md-button>
+                        <md-card-icon-actions>
+                            <md-button class="md-icon-button" aria-label="icon">
+                                <md-icon md-svg-icon="icon"></md-icon>
+                            </md-button>
+                        </md-card-icon-actions>
+                    </md-card-actions>
+                 
+                </md-card>
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">TATA Sky</span>
+                            <span class="md-subhead">*****123</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-button class="md-primary btn-block mt10 md-button md-default-theme">Edit</md-button>
+                        <md-button class="md-primary btn-block mt10 md-button md-default-theme">Delete</md-button>
+                        <md-button class="md-primary btn-block mt10 md-button md-default-theme">Recharge</md-button>
+                        <md-card-icon-actions>
+                            <md-button class="md-icon-button" aria-label="icon">
+                                <md-icon md-svg-icon="icon"></md-icon>
+                            </md-button>
+                        </md-card-icon-actions>
+                    </md-card-actions>
+                   
+                </md-card>
+            </div>
+           </div>
+
+       
+     
+    </md-content>
+   
+    <!-- Your application bootstrap  -->
+    <script type="text/javascript">
+        /**
+         * You must include the dependency on 'ngMaterial'
+         */
+        angular.module('BlankApp', ['ngMaterial']);
+    </script>
+
+</body>
+</html>
+
+

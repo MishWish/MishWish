@@ -1,0 +1,106 @@
+﻿<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+</head>
+<body ng-app="BlankApp">
+    <!--
+      Your HTML content here
+    -->
+    <!--<div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input ng-model="user.firstName">
+        </md-input-container>
+
+    </div>-->
+
+    <md-content layout-padding>
+        <div>
+            <form name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>First name</label>
+                        <input ng-model="user.firstName">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Last Name</label>
+                        <input ng-model="theMax">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Mobile No</label>
+                        <input ng-model="theMax">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-button class="md-raised md-primary">ADD</md-button>
+                    </md-input-container>
+                </div>
+                <div>
+                    <!--<md-button class="md-fab md-mini" aria-label="Eat cake">
+                        <md-icon md-svg-src="img/icons/cake.svg"></md-icon>
+                    </md-button>-->
+
+                </div>
+            </form>
+        </div>
+        <div layout-gt-sm="row" layout="column">
+            <div flex-gt-sm="100" flex>
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Contacts</span>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <md-list flex>
+                        <md-subheader class="md-no-sticky">10</md-subheader>
+                        <md-list-item class="md-3-line" ng-click="null">
+                            <img ng-src="#" class="md-avatar" alt="Image" />
+                            <div class="md-list-item-text" layout="column">
+                                <h3>List 1</h3>
+                                <h4>List 1</h4>
+                                <p>List 1x</p>
+                            </div>
+                        </md-list-item>
+                        <md-divider></md-divider>
+                    </md-list>
+                </md-content>
+            </div>
+            <!--<div flex-gt-sm="100" flex>
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Contact</span>
+                    </div>
+                </md-toolbar>
+
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">10</md-subheader>
+                    <md-list-item class="md-3-line" ng-click="null">
+                        <img class="md-avatar" alt="Avtar" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>List 1</h3>
+                            <h4>List 1</h4>
+                            <p>List 1x</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>-->
+        </div>
+    </md-content>
+    <!--<md-list>
+
+        <md-list>-->
+    <!-- Your application bootstrap  -->
+    <script type="text/javascript">
+        /**
+         * You must include the dependency on 'ngMaterial'
+         */
+        angular.module('BlankApp', ['ngMaterial']);
+    </script>
+
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->

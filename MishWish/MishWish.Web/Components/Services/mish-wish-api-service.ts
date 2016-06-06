@@ -8,7 +8,7 @@
     angular.module('MishWishApp.ApiService', ['ngResource']).factory('ApiService', ApiService).config(['$httpProvider', function ($httpProvider) {
 
         // To pass Api call's with credentials
-        $httpProvider.defaults.withCredentials = true;
+        //$httpProvider.defaults.withCredentials = true;
     }]);
 
     // Dependency Injection

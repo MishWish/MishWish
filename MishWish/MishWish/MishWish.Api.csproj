@@ -225,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Migrations\201605281948545_001_Added_Tables_MishWishApp.cs" />
     <Compile Include="Migrations\201605281948545_001_Added_Tables_MishWishApp.Designer.cs">
       <DependentUpon>201605281948545_001_Added_Tables_MishWishApp.cs</DependentUpon>

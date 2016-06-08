@@ -16,6 +16,9 @@ using Microsoft.Owin.Security.OAuth;
 using MissWish.Models;
 using MissWish.Providers;
 using MissWish.Results;
+using System.Net;
+using MishWish.Manager;
+using MishWish.Dtos;
 
 namespace MissWish.Controllers
 {
@@ -24,6 +27,7 @@ namespace MissWish.Controllers
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
+        private const string FAILURE_MESSAGE = "something went wrong while creating user";
         private ApplicationUserManager _userManager;
 
         public AccountController()
@@ -125,7 +129,7 @@ namespace MissWish.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -258,9 +262,9 @@ namespace MissWish.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -321,23 +325,30 @@ namespace MissWish.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public async Task<HttpResponseMessage> Register(UserDto userDto)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = userDto.EmailAddress, Email = userDto.EmailAddress };
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult result = await UserManager.CreateAsync(user, userDto.Password);
 
             if (!result.Succeeded)
             {
-                return GetErrorResult(result);
+                UserManager userManager = new UserManager();
+
+                // Create user and 
+                var response = userManager.CreateUser(userDto, Request);
+
+                return response;
             }
 
-            return Ok();
+            // Fail while creating user.
+            HttpResponseMessage failureResponse = Request.CreateResponse(HttpStatusCode.BadRequest, FAILURE_MESSAGE);
+            return failureResponse;
         }
 
         // POST api/Account/RegisterExternal
@@ -368,7 +379,7 @@ namespace MissWish.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

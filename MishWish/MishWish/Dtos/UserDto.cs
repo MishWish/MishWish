@@ -1,12 +1,14 @@
 ﻿using MishWish.Models;
+using MissWish.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace MishWish.Dtos
 {
-    public class UserDto
+    public class UserDto : RegisterBindingModel
     {
         #region Persistent property
 
@@ -17,7 +19,9 @@ namespace MishWish.Dtos
 
         public string MobileNumber { get; set; }
 
-        public string Email { get; set; }
+        [Required]
+        [Display(Name = "Email")]
+        public string EmailAddress { get; set; }
 
         public DateTime DOB { get; set; }
 
@@ -60,7 +64,7 @@ namespace MishWish.Dtos
             FirstName = user.FirstName;
             LastName = user.LastName;
             MobileNumber = user.MobileNumber;
-            Email = user.Email;
+            EmailAddress = user.Email;
             DOB = user.DOB;
             Gender = user.Gender;
             IsActive = user.IsActive;
@@ -85,7 +89,7 @@ namespace MishWish.Dtos
                 FirstName = this.FirstName,
                 LastName = this.LastName,
                 MobileNumber = this.MobileNumber,
-                Email = this.Email,
+                Email = this.EmailAddress,
                 DOB = this.DOB,
                 Gender = this.Gender,
                 IsActive = this.IsActive,

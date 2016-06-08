@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace MishWish.Controllers._1._0
 {
+    [Authorize]
     public class ContactController : ApiController
     {
 

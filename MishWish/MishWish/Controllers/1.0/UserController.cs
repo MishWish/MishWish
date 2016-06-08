@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace MissWish.Controllers._1._0
 {
+    [Authorize]
     public class UserController : ApiController
     {
 

@@ -7,9 +7,9 @@ module UserApp {
     'use strict';
     class UserCtrl {
 
-        static $inject = ['$scope', '$state', 'ApiService'];
+        static $inject = ['$scope', '$state', 'ApiService','LoginService'];
 
-        constructor($scope, $state, ApiService) {
+        constructor($scope, $state, ApiService, LoginService) {
 
             var userScope = this;
 
@@ -17,7 +17,8 @@ module UserApp {
             userScope.UserDto = new UserClass.UserClassDto({
                 UserId: 0,
                 AccountTypeCode: 1,
-                Password : "",
+                Password: "",
+                ConfirmPassword : "",
                 DOB: "",
                 EmailAddress: "",
                 FirstName: "",
@@ -40,9 +41,9 @@ module UserApp {
             // Create new user.
             userScope.CreateUser = function (userDto) {
                
-                ApiService.PostUser(userDto)
+                LoginService.CreateUser(userDto)
                     .success(function (data, status, headers, config) {
-                        
+                       
                      
 
 

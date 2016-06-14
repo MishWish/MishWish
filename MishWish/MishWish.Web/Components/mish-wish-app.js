@@ -3,7 +3,7 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../classes/mishwishclass.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'ngMaterialSidemenu']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu', 'MishWishApp.Login']);
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
         // By default go to the fist page i.e Home page of app.
         $urlRouterProvider.otherwise('/');
@@ -20,7 +20,7 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
                     templateUrl: '/Components/panel/right-panel.html',
                 },
                 "Login@": {
-                    templateUrl: '../login.html'
+                    templateUrl: '/Components/login/login.html'
                 }
             }
         }).state('MishWishHome.UserRegistration', {
@@ -133,7 +133,7 @@ var MishWishApp;
                 mishWishScope.IsSignUp = false;
             };
         }
-        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService'];
+        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService', 'LoginService'];
         return MishWishCtrl;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);

@@ -20,7 +20,6 @@ namespace MishWish.Dtos
         public string MobileNumber { get; set; }
 
         [Required]
-        [Display(Name = "Email")]
         public string EmailAddress { get; set; }
 
         public DateTime DOB { get; set; }

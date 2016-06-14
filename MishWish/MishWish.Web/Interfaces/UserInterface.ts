@@ -6,6 +6,7 @@ module UserDtoInterface {
         FirstName: string,
         LastName: string,
         Password: string;
+        ConfirmPassword: string;
         AccountTypeCode: number,
         EmailAddress: string,
         DOB: string,

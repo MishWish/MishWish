@@ -5,7 +5,7 @@
 /// <reference path="../classes/mishwishclass.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
 
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User','MishWishApp.ApiService','ngMaterialSidemenu']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu','MishWishApp.Login']);
 
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
@@ -25,7 +25,7 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
                 templateUrl: '/Components/panel/right-panel.html',
             },
             "Login@": {
-                templateUrl:'../login.html'
+                templateUrl:'/Components/login/login.html'
             }
         }
     }).state('MishWishHome.UserRegistration', {
@@ -111,7 +111,7 @@ module MishWishApp {
     'use strict';
     class MishWishCtrl {
 
-        static $inject = ['$scope', '$state','ApiService'];
+        static $inject = ['$scope', '$state', 'ApiService','LoginService'];
         constructor($scope, $state, ApiService) {
 
             var mishWishScope = this;
@@ -168,7 +168,6 @@ module MishWishApp {
         IsSignUp: boolean;
         IsLoginSuccess: boolean;
         MishWishVM: MishWishClass.MishWishClassVM;
-        
 
     }
 

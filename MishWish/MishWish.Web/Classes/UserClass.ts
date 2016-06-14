@@ -8,11 +8,13 @@ module UserClass {
         FirstName: string;
         LastName: string;
         Password: string;
+        ConfirmPassword: string;
         AccountTypeCode: number;
         EmailAddress: string;
         DOB: string;
         IsMale: boolean;
         MobileNumber: string;
+
 
         public constructor(user: UserDtoInterface.IUserDto) {
 
@@ -23,7 +25,9 @@ module UserClass {
             this.EmailAddress = user.EmailAddress;
             this.DOB = user.DOB;
             this.IsMale = user.IsMale;
-            this.MobileNumber = user.MobileNumber
+            this.MobileNumber = user.MobileNumber;
+            this.Password = user.Password;
+            this.ConfirmPassword = user.ConfirmPassword;
         }
         
     }

@@ -5,13 +5,14 @@ var UserApp;
 (function (UserApp) {
     'use strict';
     var UserCtrl = (function () {
-        function UserCtrl($scope, $state, ApiService) {
+        function UserCtrl($scope, $state, ApiService, LoginService) {
             var userScope = this;
             // Initialize userDto.
             userScope.UserDto = new UserClass.UserClassDto({
                 UserId: 0,
                 AccountTypeCode: 1,
                 Password: "",
+                ConfirmPassword: "",
                 DOB: "",
                 EmailAddress: "",
                 FirstName: "",
@@ -28,7 +29,7 @@ var UserApp;
             }
             // Create new user.
             userScope.CreateUser = function (userDto) {
-                ApiService.PostUser(userDto)
+                LoginService.CreateUser(userDto)
                     .success(function (data, status, headers, config) {
                 })
                     .error(function (data, status, headers, config) {
@@ -38,7 +39,7 @@ var UserApp;
             // Initial setup of user app.
             pageLoad();
         }
-        UserCtrl.$inject = ['$scope', '$state', 'ApiService'];
+        UserCtrl.$inject = ['$scope', '$state', 'ApiService', 'LoginService'];
         return UserCtrl;
     }());
     userApp.controller('UserCtrl', UserCtrl);

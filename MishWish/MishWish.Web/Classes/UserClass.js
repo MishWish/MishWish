@@ -11,6 +11,8 @@ var UserClass;
             this.DOB = user.DOB;
             this.IsMale = user.IsMale;
             this.MobileNumber = user.MobileNumber;
+            this.Password = user.Password;
+            this.ConfirmPassword = user.ConfirmPassword;
         }
         return UserClassDto;
     }());

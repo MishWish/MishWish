@@ -4,3 +4,4 @@ angular.module('MishWishApp.EnumsService', ['ngResource'])
         var allEnums = {};
         return allEnums;
     }]);
+//# sourceMappingURL=mish-wish-enum-service.js.map

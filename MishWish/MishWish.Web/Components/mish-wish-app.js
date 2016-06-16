@@ -30,24 +30,39 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
                     templateUrl: '/Components/user/user-form.html',
                 }
             }
+        }).state('MishWishHome.Recharge', {
+            url: "Recharge",
+            views: {
+                "Recharge@": {
+                    templateUrl: '/Components/recharge/Recharge.html',
+                }
+            }
         }).state('MishWishHome.Contact', {
             url: "Contact",
             views: {
-                "Content@": {
+                "Recharge@": {
                     templateUrl: '/Components/contact/Contact.html',
                 }
             }
         }).state('MishWishHome.DTH', {
             url: "DTH",
             views: {
-                "Content@": {
+                "Recharge@": {
                     templateUrl: '/Components/dth/Dth_form.html',
                 }
             }
-        }).state('MishWishHome.AddToMoney', {
+        }).state('MishWishHome.DataCard', {
+            url: "DataCard",
+            views: {
+                "Recharge@": {
+                    templateUrl: '/Components/dataCard/DataCard.html',
+                }
+            }
+        })
+            .state('MishWishHome.AddToMoney', {
             url: "AddToMoney",
             views: {
-                "Content@": {
+                "Recharge@": {
                     templateUrl: '/Components/addToMoney/addToMoney.html',
                 }
             }
@@ -57,41 +72,6 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
             .dark();
         $mdThemingProvider.theme('md-cyan-theme')
             .primaryPalette('blue');
-        //$mdThemingProvider.definePalette('amazingPaletteName', {
-        //    '50': 'ffebee',
-        //    '100': 'ffcdd2',
-        //    '200': 'ef9a9a',
-        //    '300': 'e57373',
-        //    '400': 'ef5350',
-        //    '500': 'f44336',
-        //    '600': 'e53935',
-        //    '700': 'd32f2f',
-        //    '800': 'c62828',
-        //    '900': 'b71c1c',
-        //    'A100': 'ff8a80',
-        //    'A200': 'ff5252',
-        //    'A400': 'ff1744',
-        //    'A700': 'd50000',
-        //    'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
-        //    // on this palette should be dark or light
-        //    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
-        //        '200', '300', '400', 'A100'],
-        //    'contrastLightColors': undefined    // could also specify this if default was 'dark'
-        //});
-        //$mdThemingProvider.theme('default')
-        //    .primaryPalette('amazingPaletteName')
-        //$mdThemingProvider.theme('default')
-        //    .primaryPalette('blue', {
-        //        'default': '400', // by default use shade 400 from the pink palette for primary intentions
-        //        'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
-        //        'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-        //        'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
-        //    })
-        //    // If you specify less than all of the keys, it will inherit from the
-        //    // default shades
-        //    .accentPalette('purple', {
-        //        'default': '200' // use shade 200 for default, and keep all other shades the same
-        //    }).dark();
     }]);
 var MishWishApp;
 (function (MishWishApp) {
@@ -113,12 +93,18 @@ var MishWishApp;
                 // Temprory hard coded.
                 switch (selectedTab) {
                     case 1:
-                        $state.go('MishWishHome.Contact');
+                        $state.go('MishWishHome.Recharge');
                         break;
                     case 2:
-                        $state.go('MishWishHome.DTH');
+                        $state.go('MishWishHome.Contact');
                         break;
                     case 3:
+                        $state.go('MishWishHome.DTH');
+                        break;
+                    case 4:
+                        $state.go('MishWishHome.DataCard');
+                        break;
+                    case 5:
                         $state.go('MishWishHome.AddToMoney');
                         break;
                 }
@@ -128,13 +114,14 @@ var MishWishApp;
                 mishWishScope.IsSignUp = true;
             };
             mishWishScope.onRegisterNewUser = function () {
-                $state.go('MishWishHome.Contact');
+                $state.go('MishWishHome.Recharge');
                 mishWishScope.IsLoginSuccess = true;
                 mishWishScope.IsSignUp = false;
             };
         }
-        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService', 'LoginService'];
+        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService'];
         return MishWishCtrl;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);
 })(MishWishApp || (MishWishApp = {}));
+//# sourceMappingURL=mish-wish-app.js.map

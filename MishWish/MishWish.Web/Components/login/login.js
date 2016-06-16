@@ -6,6 +6,7 @@ var Login;
     'use strict';
     var LoginCtrl = (function () {
         function LoginCtrl($scope, $state, LoginService) {
+            debugger;
             var loginScope = this;
             // Login into mish wish system.
             loginScope.LogIn = function (userName, password) {
@@ -35,3 +36,4 @@ var Login;
     }());
     loginCtrl.controller('LoginCtrl', LoginCtrl);
 })(Login || (Login = {}));
+//# sourceMappingURL=login.js.map

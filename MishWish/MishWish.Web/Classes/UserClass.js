@@ -25,3 +25,4 @@ var UserClass;
     }());
     UserClass.UserVM = UserVM;
 })(UserClass || (UserClass = {}));
+//# sourceMappingURL=UserClass.js.map

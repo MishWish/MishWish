@@ -8,7 +8,7 @@
 var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu','MishWishApp.Login']);
 
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
-
+    debugger;
     // By default go to the fist page i.e Home page of app.
     $urlRouterProvider.otherwise('/');
 
@@ -25,6 +25,7 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
                 templateUrl: '/Components/panel/right-panel.html',
             },
             "Login@": {
+               
                 templateUrl:'/Components/login/login.html'
             }
         }
@@ -88,7 +89,7 @@ module MishWishApp {
     'use strict';
     class MishWishCtrl {
 
-        static $inject = ['$scope', '$state','ApiService'];
+        static $inject = ['$scope', '$state', 'ApiService','LoginService'];
         constructor($scope, $state, ApiService) {
 
             var mishWishScope = this;

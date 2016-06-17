@@ -119,9 +119,8 @@ var MishWishApp;
                 mishWishScope.IsSignUp = false;
             };
         }
-        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService'];
+        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService', 'LoginService'];
         return MishWishCtrl;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);
 })(MishWishApp || (MishWishApp = {}));
-//# sourceMappingURL=mish-wish-app.js.map

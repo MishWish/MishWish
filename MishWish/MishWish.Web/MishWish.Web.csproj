@@ -185,7 +185,9 @@
     <Content Include="Components\addToMoney\addToMoney.html" />
     <Content Include="Components\admin\admin-dash.html" />
     <Content Include="Components\contact\Contact.html" />
+    <Content Include="Components\dataCard\DataCard.html" />
     <Content Include="Components\dth\DTH_form.html" />
+    <Content Include="Components\login\ForgetPassword.html" />
     <Content Include="Components\MobileVerify\MobileVerify.html" />
     <Content Include="Components\panel\left-panel.html" />
     <Content Include="Components\mish-wish.html" />

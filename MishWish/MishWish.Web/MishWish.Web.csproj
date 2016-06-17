@@ -182,17 +182,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Components\addToMoney\addToMoney.html" />
+    <Content Include="Components\add_to_money\add-to-money.html" />
     <Content Include="Components\admin\admin-dash.html" />
-    <Content Include="Components\contact\Contact.html" />
-    <Content Include="Components\dataCard\DataCard.html" />
-    <Content Include="Components\dth\DTH_form.html" />
-    <Content Include="Components\login\ForgetPassword.html" />
-    <Content Include="Components\MobileVerify\MobileVerify.html" />
+    <Content Include="Components\contact\contact.html" />
+    <Content Include="Components\data_card\data-card.html" />
+    <Content Include="Components\dth\dth-form.html" />
+    <Content Include="Components\login\forget-password.html" />
+    <Content Include="Components\mobile_verify\MobileVerify.html" />
     <Content Include="Components\panel\left-panel.html" />
     <Content Include="Components\mish-wish.html" />
     <Content Include="Components\panel\right-panel.html" />
-    <Content Include="Components\recharge\Recharge.html" />
+    <Content Include="Components\recharge\recharge.html" />
     <Content Include="Components\user\user-form.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

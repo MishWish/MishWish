@@ -8,7 +8,7 @@
 var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu','MishWishApp.Login']);
 
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
-    debugger;
+    
     // By default go to the fist page i.e Home page of app.
     $urlRouterProvider.otherwise('/');
 
@@ -39,29 +39,29 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
     }).state('MishWishHome.Recharge', {
         url: "Recharge",
         views: {
-            "Recharge@": {
-                templateUrl: '/Components/recharge/Recharge.html',
+            "Content@": {
+                templateUrl: '/Components/recharge/recharge.html',
             }
         }
     }).state('MishWishHome.Contact', {
         url: "Contact",
         views: {
-            "Recharge@": {
-                templateUrl: '/Components/contact/Contact.html',
+            "Content@": {
+                templateUrl: '/Components/contact/contact.html',
             }
         }
     }).state('MishWishHome.DTH', {
         url: "DTH",
         views: {
-            "Recharge@": {
-                templateUrl: '/Components/dth/Dth_form.html',
+            "Content@": {
+                templateUrl: '/Components/dth/dth-form.html',
             }
         }
     }).state('MishWishHome.DataCard', {
         url: "DataCard",
         views: {
-            "Recharge@": {
-                templateUrl: '/Components/dataCard/DataCard.html',
+            "Content@": {
+                templateUrl: '/Components/data_card/data-card.html',
             }
         }
     })
@@ -69,8 +69,8 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
     .state('MishWishHome.AddToMoney', {
         url: "AddToMoney",
         views: {
-            "Recharge@": {
-                templateUrl: '/Components/addToMoney/addToMoney.html',
+            "Content@": {
+                templateUrl: '/Components/add_to_money/add-to-money.html',
             }
         }
     })
@@ -138,12 +138,13 @@ module MishWishApp {
             };
 
             mishWishScope.onSignUp = function () {
+              
                 $state.go('MishWishHome.UserRegistration');
                 mishWishScope.IsSignUp = true;
             };
 
             mishWishScope.onRegisterNewUser = function () {
-           
+               
                 $state.go('MishWishHome.Recharge');
                 mishWishScope.IsLoginSuccess = true;
                 mishWishScope.IsSignUp = false;

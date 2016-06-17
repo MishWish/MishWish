@@ -11,11 +11,11 @@
             <div layout-gt-sm="row">
 
                 <md-autocomplete ng-disabled="ctrl.isDisabled"
-                                 md-no-cache=""
-                                 md-selected-item=""
-                                 md-search-text-change=""
-                                 md-search-text=""
-                                 md-selected-item-change=""
+                                 md-no-cache="selected"
+                                 md-selected-item="selecteItem"
+                                 md-search-text-change="onTextChanged()"
+                                 md-search-text="text"
+                                 md-selected-item-change="onChange()"
                                  md-items="Text"
                                  md-item-text="Text"
                                  md-min-length="0"

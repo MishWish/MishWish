@@ -9,7 +9,7 @@ module Login {
 
         static $inject = ['$scope', '$state', 'LoginService'];
         constructor($scope, $state, LoginService) {
-            debugger;
+          
             var loginScope = this;
 
             // Login into mish wish system.

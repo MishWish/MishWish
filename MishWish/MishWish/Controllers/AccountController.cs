@@ -336,7 +336,7 @@ namespace MissWish.Controllers
 
             IdentityResult result = await UserManager.CreateAsync(user, userDto.Password);
 
-            if (!result.Succeeded)
+            if (result.Succeeded)
             {
                 UserManager userManager = new UserManager();
 

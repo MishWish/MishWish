@@ -11,3 +11,4 @@ var MishWishClass;
     }());
     MishWishClass.MishWishClassVM = MishWishClassVM;
 })(MishWishClass || (MishWishClass = {}));
+//# sourceMappingURL=MishWishClass.js.map

@@ -26,18 +26,14 @@
             return $http.post(ApiURL + 'Account/Register', userDetails);
         };
         // Login service.
-        theService.Login = function (userlogin) {
-            debugger;
-            return $http({
-                url: "/TOKEN",
-                method: "POST",
-                data: $.param({ grant_type: 'password', username: userlogin.username, password: userlogin.password }),
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            });
+        theService.Login = function (userDetails) {
+            return $http.post("http://localhost:49573/Token", userDetails, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
         };
         // Log out service.
         theService.LogOut = function () {
+            sessionStorage.removeItem('accessToken');
         };
         return theService;
     }
 })();
+//# sourceMappingURL=mish-wish-login-service.js.map

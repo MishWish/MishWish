@@ -9,15 +9,14 @@ var Login;
             var loginScope = this;
             // Login into mish wish system.
             loginScope.LogIn = function (userName, password) {
-                debugger;
                 var userDetails = {
                     username: userName,
                     password: password
                 };
+                var loginDetail = "grant_type=password&username=" + userName + "&password=" + password;
                 // Login to system.
                 LoginService.Login(userDetails)
                     .success(function (data, status, headers, config) {
-                    debugger;
                     if (data != null) {
                         LoginService.SetToken(data);
                     }
@@ -35,3 +34,4 @@ var Login;
     }());
     loginCtrl.controller('LoginCtrl', LoginCtrl);
 })(Login || (Login = {}));
+//# sourceMappingURL=login.js.map

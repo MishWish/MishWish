@@ -25,6 +25,14 @@
 
         var ApiUrl = "http://localhost:49573/api/";
 
+        var accesstoken = sessionStorage.getItem('accessToken');
+
+        var authHeaders = { Authorization: null };
+
+        if (accesstoken) {
+            authHeaders.Authorization = 'Bearer ' + accesstoken;
+        }
+
         // Get service URL form js session storage.
         if (sessionStorage.getItem("apiURL")) {
             ApiUrl = sessionStorage.getItem("apiURL");
@@ -32,7 +40,7 @@
 
         // Get current user
         theService.PostUser = function (userDto) {
-            return $http.post(ApiUrl + 'User/', userDto);
+            return $http.post(ApiUrl + 'User/', userDto, authHeaders);
         };
 
         return theService;

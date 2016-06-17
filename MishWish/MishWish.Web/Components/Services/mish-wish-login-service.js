@@ -4,7 +4,7 @@
         }]);
     LoginService.$inject = ['$http'];
     function LoginService($http) {
-        var ApiURL = "http://localhost:49573/api/";
+        var ApiURL = "http://localhost:49763/api/";
         // Define all login service.
         var theService = {
             CreateUser: null,

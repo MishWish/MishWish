@@ -17,22 +17,18 @@
 
         // Declare all service.
         var theService = {
-            PostUser: null,
             GetUser: null,
             PutUser: null,
             GetContacts:null,
         };
 
-
+        // To Do : Get from config file
         var ApiUrl = "http://localhost:49573/api/";
 
+        // Get token from session for web-api authenticate..
         var accesstoken = sessionStorage.getItem('accessToken');
 
-       // var authHeaders = { Authorization: null };
-
         if (accesstoken) {
-            //authHeaders.Authorization = accesstoken;
-
             $http.defaults.headers.common.Authorization = accesstoken;
         }
 
@@ -40,11 +36,6 @@
         if (sessionStorage.getItem("apiURL")) {
             ApiUrl = sessionStorage.getItem("apiURL");
         }
-
-        // Create new user.
-        theService.PostUser = function (userDto) {
-            return $http.post(ApiUrl + 'User/', userDto);
-        };
 
         // Get current user contacts.
         theService.GetContacts = function () {

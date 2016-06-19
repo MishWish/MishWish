@@ -11,6 +11,9 @@ using System.Web.Http;
 
 namespace MissWish.Controllers._1._0
 {
+    /// <summary>
+    /// Api for user controller
+    /// </summary>
     [Authorize]
     public class UserController : ApiController
     {
@@ -24,7 +27,6 @@ namespace MissWish.Controllers._1._0
         private const string REQUIRED_FIELD = "Make sure that you have included all required fields in your request.";
         #endregion
 
-
         /// <summary>
         /// Get all users
         /// </summary>
@@ -33,21 +35,29 @@ namespace MissWish.Controllers._1._0
         [HttpGet]
         public List<UserDto> GetUsers()
         {
-            List<UserDto> returnUsers = new List<UserDto>();
             try
             {
                 using (var db = new MishWishEntities())
                 {
-                    var users = db.Users.ToList();
-                    //Return all users
-                    returnUsers = users.Select(t => new UserDto(t)).ToList();
+                    var users = db.Users.Where(us => us.IsActive).Select(u => new UserDto { 
+                    
+                        FirstName =u.FirstName,
+                        LastName = u.LastName,
+                        DOB = u.DOB,
+                        EmailAddress =u.Email,
+                        Gender = u.Gender,
+                        MobileNumber =u.MobileNumber,
+                        UserId = u.UserId
+                        
+                    }).ToList();
 
-                    return returnUsers;
+
+                    return users;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, ex.Message));
             }
         }
 
@@ -61,9 +71,11 @@ namespace MissWish.Controllers._1._0
         [HttpGet]
         public UserDto GetUserById(long id)
         {
-            //Check valid id 
+            // Check valid id 
             if (id == 0)
+            {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound, INVALID_PARAMEATER));
+            }
             try
             {
                 using (var db = new MishWishEntities())

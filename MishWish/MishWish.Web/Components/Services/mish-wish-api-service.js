@@ -33,7 +33,6 @@
         };
         // Get current user contacts.
         theService.GetContacts = function () {
-            debugger;
             return $http.get(ApiUrl + 'Contact/');
         };
         return theService;

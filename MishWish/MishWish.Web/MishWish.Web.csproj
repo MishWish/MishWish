@@ -193,7 +193,7 @@
     <Content Include="Components\mish-wish.html" />
     <Content Include="Components\panel\right-panel.html" />
     <Content Include="Components\recharge\recharge.html" />
-    <Content Include="Components\user\user-form.html" />
+    <Content Include="Components\user\user.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
@@ -1060,12 +1060,13 @@
   <ItemGroup>
     <TypeScriptCompile Include="Classes\MishWishClass.ts" />
     <TypeScriptCompile Include="Classes\UserClass.ts" />
+    <TypeScriptCompile Include="Components\contact\contact.ts" />
     <TypeScriptCompile Include="Components\login\login.ts" />
     <TypeScriptCompile Include="Components\mish-wish-app.ts" />
     <TypeScriptCompile Include="Components\services\mish-wish-api-service.ts" />
     <TypeScriptCompile Include="Components\services\mish-wish-enum-service.ts" />
     <TypeScriptCompile Include="Components\services\mish-wish-login-service.ts" />
-    <TypeScriptCompile Include="Components\user\user-form.ts" />
+    <TypeScriptCompile Include="Components\user\user.ts" />
     <TypeScriptCompile Include="Interfaces\MishWishInterface.ts" />
     <TypeScriptCompile Include="Interfaces\UserInterface.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />

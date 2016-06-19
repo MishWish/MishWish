@@ -24,5 +24,13 @@ var UserClass;
         return UserVM;
     }());
     UserClass.UserVM = UserVM;
+    var LoginVM = (function () {
+        function LoginVM(user) {
+            this.UserName = user.UserName;
+            this.Password = user.Password;
+        }
+        return LoginVM;
+    }());
+    UserClass.LoginVM = LoginVM;
 })(UserClass || (UserClass = {}));
 //# sourceMappingURL=UserClass.js.map

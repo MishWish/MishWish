@@ -3,8 +3,8 @@ declare var ApiURL: string;
 (function () {
     'use strict';
     angular.module('MishWishApp.LoginService', ['ngResource']).factory('LoginService', LoginService).config(['$httpProvider', function ($httpProvider) {
-      
-    }]);
+
+}]);
 
 
     LoginService.$inject = ['$http'];
@@ -25,12 +25,14 @@ declare var ApiURL: string;
 
         // Get access token.
         theService.GetToken = function () {
-            sessionStorage.getItem('accessToken');
+          return sessionStorage.getItem('accessToken');
         }
 
         // Set access token
         theService.SetToken = function (tokenDetail) {
-            sessionStorage.setItem('accessToken', tokenDetail.accessToken);
+            sessionStorage.setItem('loginDetail', tokenDetail);
+            // Build authorization token.
+            sessionStorage.setItem('accessToken', 'bearer ' + tokenDetail.access_token);
         }
 
         // Create new user or register
@@ -40,12 +42,19 @@ declare var ApiURL: string;
 
         // Login service.
         theService.Login = function (userDetails) {
-            return $http.post("http://localhost:49573/Token", userDetails, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+           
+            return $http({
+                url: 'http://localhost:49573/token',
+                method: 'POST',
+                data: userDetails
+            })
+
         }
 
         // Log out service.
         theService.LogOut = function () {
             sessionStorage.removeItem('accessToken');
+            sessionStorage.removeItem('loginDetail');
         }
 
 

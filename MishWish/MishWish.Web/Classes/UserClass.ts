@@ -41,4 +41,17 @@ module UserClass {
         }
 
     }
+
+    export class LoginVM implements UserDtoInterface.ILoginVM {
+
+        UserName: string;
+        Password: string;
+
+        public constructor(user: UserDtoInterface.ILoginVM) {
+
+            this.UserName = user.UserName;
+            this.Password = user.Password;
+
+        }
+    }
 }

@@ -17,4 +17,9 @@ module UserDtoInterface {
     export interface IUserVM {
         User: any;
     }
+
+    export interface ILoginVM {
+        UserName: string;
+        Password: string;
+    }
 }

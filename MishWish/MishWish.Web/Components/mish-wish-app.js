@@ -3,7 +3,7 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../classes/mishwishclass.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu', 'MishWishApp.Login']);
+var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu', 'MishWishApp.Login', 'MishWishApp.Contact']);
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
         // By default go to the fist page i.e Home page of app.
         $urlRouterProvider.otherwise('/');
@@ -27,7 +27,7 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
             url: "UserRegistration",
             views: {
                 "SignUp@": {
-                    templateUrl: '/Components/user/user-form.html',
+                    templateUrl: '/Components/user/user.html',
                 }
             }
         }).state('MishWishHome.Recharge', {

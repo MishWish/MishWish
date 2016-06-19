@@ -11,30 +11,47 @@ module Login {
         constructor($scope, $state, LoginService) {
           
             var loginScope = this;
+            var mishWishScope = $scope.mishWishScope;
+
+            // Declare login VM.
+            loginScope.LoginVM = new UserClass.LoginVM({
+                UserName: null,
+                Password : null,
+            });
 
             // Login into mish wish system.
-            loginScope.LogIn = function (userName, password) {
-                
-                var userDetails = {
-                    username: userName,
-                    password: password
-                };
+            loginScope.LogIn = function (loginDetail) {
 
-                var loginDetail = "grant_type=password&username=" + userName+"&password=" + password;
+                var loginConent = "grant_type=password&username=" + loginDetail.UserName + "&password=" + loginDetail.Password;
 
                 // Login to system.
-                LoginService.Login(userDetails)
+                LoginService.Login(loginConent)
                     .success(function (data, status, headers, config) {
-                        
+                   
                         if (data != null) {
 
+                            // Set access token.
                             LoginService.SetToken(data);
+                         
+                            // Get access token from session.
+                            var getAccessToken = LoginService.GetToken();
+
+                            if (getAccessToken != null) {
+
+                                $state.go('MishWishHome.Recharge');
+                                mishWishScope.IsLoginSuccess = true;
+                                mishWishScope.IsSignUp = false;
+                            }
+                            else {
+                                // Go default state i.e login page.
+                                $state.go('^');
+                                mishWishScope.IsLoginSuccess = false;
+                                mishWishScope.IsSignUp = false;
+                            }
                         }
 
                     })
                     .error(function (data, status, headers, config) {
-                        // Error occur while update knowledge Asset.
-
 
                     })
 
@@ -46,8 +63,9 @@ module Login {
             };
         }
 
-        LogIn: (userName: string, password: string) => void; 
+        LogIn: (any: UserClass.LoginVM) => void; 
         LogOut: () => void;
+        LoginVM : UserClass.LoginVM;
     }
 
     loginCtrl.controller('LoginCtrl', LoginCtrl);

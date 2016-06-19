@@ -16,16 +16,16 @@
 
                     <md-input-container class="md-block">
                         <label>Email Address or Mobile number</label>
-                        <input ng-model="MobileNumber">
+                        <input ng-model="loginScope.LoginVM.UserName">
                     </md-input-container>
 
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" ng-model="Password">
+                        <input type="password" ng-model="loginScope.LoginVM.Password">
                     </md-input-container>
 
                     <section layout="row" layout-gt="column" layout-align="center center">
-                        <md-button ng-click="loginScope.LogIn('test@test2.com','Abc@123')" class="waves-effect waves-light btn done center">Login</md-button>
+                        <md-button ng-click="loginScope.LogIn(loginScope.LoginVM)" class="waves-effect waves-light btn done center">Login</md-button>
                         <md-button ng-click="mishWishScope.onSignUp()" class="waves-effect waves-light btn cancel middle">Sign Up</md-button>
                     </section>
 

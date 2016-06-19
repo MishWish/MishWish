@@ -14,20 +14,27 @@
             PostUser: null,
             GetUser: null,
             PutUser: null,
+            GetContacts: null,
         };
         var ApiUrl = "http://localhost:49573/api/";
         var accesstoken = sessionStorage.getItem('accessToken');
-        var authHeaders = { Authorization: null };
+        // var authHeaders = { Authorization: null };
         if (accesstoken) {
-            authHeaders.Authorization = 'Bearer ' + accesstoken;
+            //authHeaders.Authorization = accesstoken;
+            $http.defaults.headers.common.Authorization = accesstoken;
         }
         // Get service URL form js session storage.
         if (sessionStorage.getItem("apiURL")) {
             ApiUrl = sessionStorage.getItem("apiURL");
         }
-        // Get current user
+        // Create new user.
         theService.PostUser = function (userDto) {
-            return $http.post(ApiUrl + 'User/', userDto, authHeaders);
+            return $http.post(ApiUrl + 'User/', userDto);
+        };
+        // Get current user contacts.
+        theService.GetContacts = function () {
+            debugger;
+            return $http.get(ApiUrl + 'Contact/');
         };
         return theService;
     }

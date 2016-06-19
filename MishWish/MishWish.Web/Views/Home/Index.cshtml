@@ -22,8 +22,10 @@
 
 <script src="~/scripts/angular-material.min.js"></script>
 <script src="~/Scripts/angular-material-sidemenu.js"></script>
+<script src="~/Scripts/angular-messages.min.js"></script>
 
 <script src="~/Components/mish-wish-app.js"></script>
+<script src="~/Components/services/mish-wish-enum-service.js"></script>
 <script src="~/Components/services/mish-wish-api-service.js"></script>
 <script src="~/Components/services/mish-wish-login-service.js"></script>
 <script src="~/Components/login/login.js"></script>
@@ -73,7 +75,7 @@
                 <div flex="60" class="ContentPadding" md-theme="default" ui-view="Content"></div>
 
                 <!--RIGHT SIDE PANEL -->
-                <div flex="20" ui-view="RightPanel"></div>
+                @*<div flex="20" ui-view="RightPanel"></div>*@
 
             </div>
 

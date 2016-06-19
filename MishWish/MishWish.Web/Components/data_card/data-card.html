@@ -2,7 +2,7 @@
 
 <md-content layout-padding>
     <div>
-        <form name="userForm">
+        <form name="dataCardForm" class="formPadding">
             <div class="mainLabel">
                 <h3>Pay For Your Data Card</h3>
             </div>
@@ -17,16 +17,16 @@
             <div layout-gt-sm="row">
 
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>Prepaid Data Card Number</label>
-                    <input ng-model="theMax">
+                    <label>Enter Data Card Number</label>
+                    <input ng-model="DataCardNumber">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Operator</label>
-                    <input ng-model="theMax">
+                    <input ng-model="Operator">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Amount</label>
-                    <input ng-model="theMax">
+                    <input ng-model="Amount">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <md-button class="md-raised md-primary btn-new mt-20 md-button md-default-theme">Proceed to Recharge</md-button>

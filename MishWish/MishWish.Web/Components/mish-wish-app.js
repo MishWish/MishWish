@@ -16,9 +16,9 @@ app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', 
                 //"MishWishContent@": {
                 //    templateUrl: '/Components/mish-wish.html',
                 //},
-                "RightPanel@": {
-                    templateUrl: '/Components/panel/right-panel.html',
-                },
+                //"RightPanel@": {
+                //    templateUrl: '/Components/panel/right-panel.html',
+                //},
                 "Login@": {
                     templateUrl: '/Components/login/login.html'
                 }

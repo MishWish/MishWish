@@ -42,15 +42,54 @@
             <!-- TOOL BAR -->
             <md-toolbar class="main-header md-whiteframe-3dp">
                 <div class="md-toolbar-tools">
-                    <div flex="15" layout="row" layout-align="center center">
+                    <div flex="13" layout="row" layout-align="center center">
                         <img src="../Css/img/Mish call logo.png" width="110" height="50" />
                     </div>
                     <span flex></span>
+                    <div flex="2" layout="row" layout-align="center center">
+                        <div class="md-menu-demo" ng-cloak>
+                            <div class="menu-demo-container" layout-align="center center" layout="column">
+                                <md-menu>
+                                    <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="">
+                                        <md-icon md-menu-origin md-svg-icon="call:phone"></md-icon>
+                                    </md-button>
+                                    <!--<md-button class="md-icon-button">
+                        <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+                    </md-button>-->
+                                    <md-menu-content width="4">
+                                        <md-menu-item>
+                                            <md-button ng-click="">
+                                                <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+                                                Redial
+                                            </md-button>
+                                        </md-menu-item>
+                                        <md-menu-item>
+                                            <md-button ng-click="">
+                                                <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+                                                Check voicemail
+                                            </md-button>
+                                        </md-menu-item>
+                                        <md-menu-divider></md-menu-divider>
+                                        <md-menu-item>
+                                            <md-button ng-click="">
+                                                <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+                                                Check voicemail
+                                            </md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div flex="5" layout="row" layout-align="center center">
                         <md-button class="md-icon-button">
                             <ng-md-icon icon="account_circle" size="50"></ng-md-icon>
                         </md-button>
+                       
                     </div>
+                  
+
 
                 </div>
             </md-toolbar>
@@ -65,7 +104,7 @@
                 <div flex="60" class="ContentPadding" md-theme="default" ui-view="Recharge"></div>
 
                 <!--RIGHT SIDE PANEL -->
-                <div flex="20" ui-view="RightPanel"></div>
+                <!--<div flex="20" ui-view="RightPanel"></div>-->
 
             </div>
 

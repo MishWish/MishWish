@@ -2,7 +2,7 @@
 
 <md-content layout-padding>
     <div>
-        <form name="userForm">
+        <form name="contactForm" class="formPadding">
             <div class="mainLabel">
                 <h3>Add New Contact</h3>
             </div>
@@ -14,11 +14,11 @@
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Last Name</label>
-                    <input ng-model="theMax">
+                    <input ng-model="LastName">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Mobile No</label>
-                    <input ng-model="theMax">
+                    <input ng-model="MobileNumber">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <md-button class="md-raised md-primary">ADD</md-button>
@@ -30,13 +30,11 @@
                 </md-button>-->
 
             </div>
-        </form>
-    </div>
-    <div layout-gt-sm="row" layout="column">
-        <div class="mainLabel">
-            <h3>Your Contacts List</h3>
-        </div>
-        <!--<div flex-gt-sm="100" flex>
+            <div layout-gt-sm="row" layout="column">
+                <div class="mainLabel">
+                    <h3>Your Contact List</h3>
+                </div>
+                <!--<div flex-gt-sm="100" flex>
             <md-toolbar layout="row" class="md-hue-3">
                 <div class="md-toolbar-tools">
                     <span>Contacts</span>
@@ -57,7 +55,7 @@
                 </md-list>
             </md-content>
         </div>-->
-        <!--<div flex-gt-sm="100" flex>
+                <!--<div flex-gt-sm="100" flex>
             <md-toolbar layout="row" class="md-hue-3">
                 <div class="md-toolbar-tools">
                     <span>Contact</span>
@@ -76,5 +74,8 @@
                 </md-list-item>
             </md-list>
         </div>-->
+            </div>
+        </form>
     </div>
+    
 </md-content>

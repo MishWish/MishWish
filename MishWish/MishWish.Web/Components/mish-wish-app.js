@@ -3,7 +3,19 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../classes/mishwishclass.ts" />
 /// <reference path="../scripts/typings/bootstrap/bootstrap.d.ts" />
-var app = angular.module('MishWishApp', ['ngRoute', 'ui.router', 'ngMaterial', 'ngMdIcons', 'MishWishApp.User', 'MishWishApp.ApiService', 'MishWishApp.LoginService', 'ngMaterialSidemenu', 'MishWishApp.Login', 'MishWishApp.Contact']);
+var app = angular.module('MishWishApp', [
+    'ngRoute',
+    'ui.router',
+    'ngMaterial',
+    'ngMdIcons',
+    'ngMessages',
+    'MishWishApp.User',
+    'MishWishApp.ApiService',
+    'MishWishApp.EnumsService',
+    'MishWishApp.LoginService',
+    'ngMaterialSidemenu',
+    'MishWishApp.Login',
+    'MishWishApp.Contact']);
 app.config(['$routeProvider', '$provide', '$httpProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function ($routeProvider, $provide, $httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
         // By default go to the fist page i.e Home page of app.
         $urlRouterProvider.otherwise('/');
@@ -77,7 +89,7 @@ var MishWishApp;
 (function (MishWishApp) {
     'use strict';
     var MishWishCtrl = (function () {
-        function MishWishCtrl($scope, $state, ApiService) {
+        function MishWishCtrl($scope, $state, ApiService, LoginService, EnumsService) {
             var mishWishScope = this;
             // MishWish VM that containt method and variable.
             mishWishScope.MishWishVM = new MishWishClass.MishWishClassVM({
@@ -87,6 +99,26 @@ var MishWishApp;
             });
             // Setup on state chnage.
             $scope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
+                // Get access token.
+                var getAccessToken = LoginService.GetToken();
+                // If login user then redirect to view.
+                // User are login to app
+                if (getAccessToken != null && EnumsService.MishWishStateList.indexOf(toState.name) > -1) {
+                    mishWishScope.IsLoginSuccess = true;
+                    mishWishScope.IsSignUp = false;
+                }
+                // If user is not login that case redirect to login page.
+                if (getAccessToken == null) {
+                    // Otherwise go to parent state i.e login.
+                    $state.go("MishWishHome");
+                    mishWishScope.IsLoginSuccess = false;
+                    mishWishScope.IsSignUp = false;
+                }
+                // If user  register a new user.
+                if (EnumsService.MishWishUserRegistrationState.UserRegistration == toState.name) {
+                    mishWishScope.IsSignUp = true;
+                    mishWishScope.IsLoginSuccess = false;
+                }
             });
             // To select left slider panel
             mishWishScope.MishWishVM.OnTabChange = function (selectedTab) {
@@ -112,14 +144,15 @@ var MishWishApp;
             mishWishScope.onSignUp = function () {
                 $state.go('MishWishHome.UserRegistration');
                 mishWishScope.IsSignUp = true;
+                mishWishScope.IsLoginSuccess = false;
             };
             mishWishScope.onRegisterNewUser = function () {
-                $state.go('MishWishHome.Recharge');
-                mishWishScope.IsLoginSuccess = true;
+                $state.go('MishWishHome');
+                mishWishScope.IsLoginSuccess = false;
                 mishWishScope.IsSignUp = false;
             };
         }
-        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService', 'LoginService'];
+        MishWishCtrl.$inject = ['$scope', '$state', 'ApiService', 'LoginService', 'EnumsService'];
         return MishWishCtrl;
     }());
     app.controller('MishWishCtrl', MishWishCtrl);

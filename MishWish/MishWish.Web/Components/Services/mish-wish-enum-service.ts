@@ -6,7 +6,11 @@ angular.module('MishWishApp.EnumsService', ['ngResource'])
 
         var allEnums = {
 
+            MishWishState: { Contact: "MishWishHome.Contact", Recharge: "MishWishHome.Recharge", Dth: "MishWishHome.DTH", DataCard: "MishWishHome.DataCard" },
 
+            MishWishStateList: ["MishWishHome.Contact", "MishWishHome.Recharge", "MishWishHome.DTH","MishWishHome.DataCard"],
+
+            MishWishUserRegistrationState: { UserRegistration: "MishWishHome.UserRegistration" } 
         };
 
         return allEnums;

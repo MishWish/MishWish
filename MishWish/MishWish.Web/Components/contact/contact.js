@@ -24,4 +24,3 @@ var Contact;
     }());
     contactCtrl.controller('ContactCtrl', ContactCtrl);
 })(Contact || (Contact = {}));
-//# sourceMappingURL=contact.js.map

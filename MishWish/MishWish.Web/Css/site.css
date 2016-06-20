@@ -2,7 +2,7 @@
 
 .signup-background {
      min-height:100%;
-    background-color: #263238;
+    background-color: #FFF;
 }
 
 .text-center{
@@ -47,9 +47,59 @@ body {
 	padding: 20px;
     padding-bottom: 40px;
     border-radius: 5px;
-    background-color: #2c3940;
+    background-color: #FFF;
     box-shadow: 0 1px 6px rgba(0,0,0,.3);
     color: white;
+}
+
+.login-screen {
+
+    padding-bottom: 40px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 1px 6px rgba(0,0,0,.3);
+    color: white;
+    height:307px;
+    width:750px;
+    margin-top:10px;
+}
+.registration-screen {
+     padding-bottom: 40px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 1px 6px rgba(0,0,0,.3);
+    height:440px;
+    width:750px;
+    margin-top:10px;
+}
+.formFmt{
+
+    padding-bottom: 40px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 1px 6px rgba(0,0,0,.3);
+    height:307px;
+    width:750px;
+    margin-top:10px;
+    padding:20px;
+
+    /*padding-bottom: 40px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 1px 6px rgba(0,0,0,.3);
+    height:307px;
+    width:750px;
+    margin-top:10px;
+    padding:20px;*/
+    
+    /*position: relative;
+    background: #fff;
+    padding: 20px;
+    width: 375px;
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.5);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.5);
+    margin: 27px 0 180px 70px;*/
 }
 
 .btn{
@@ -5044,7 +5094,7 @@ md-toolbar.md-md-cyan-theme-theme {
 }
 .mainLabel{
 
-    color: #00B9F5;
+    color: #00bcd4;
     font-size: 14px;
     margin-bottom: 0;
     padding: 7px 0 3px 12px;
@@ -5057,9 +5107,91 @@ md-toolbar.md-md-cyan-theme-theme {
 .formPadding{
     padding-left:10px;
 }
+.text{
+    font-size:12px;
+    
+}
+.pre{
+    font-size:14px;
+    color:black;
+}
 
-/* Sign up padding */
-.signUpPadding {
+#wallet-container-new ul.left{
+     text-align: left;
+    background: #00bcd4;
+    float: left;
+    padding: 21px 34px;
+    width: 313px;
+    height: 307px;
+}
 
-    padding-right:3%;
+#wallet-container-new ul.registrationLeft{
+     text-align: left;
+    background: #00bcd4;
+    float: left;
+    padding: 21px 34px;
+    width: 313px;
+    height: 440px;
+}
+#login-container{
+   
+    padding: 35px 0 0 54px;
+    line-height: 1;
+    float:left;
+}
+#login-header-wrapper
+{
+    position: relative;
+    box-sizing: border-box;
+    height: 30px;
+}
+.form-container{
+    width: 715px !important;
+}
+.tab{
+    
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    position: relative;
+}
+.tab li.selected{
+    color: #00D7FF;
+    /*border-bottom: 2px solid #00D7FF;*/
+}
+
+.mp-web-new li{
+    cursor: pointer;
+    color: #B2B2B2;
+    font-size: 18px;
+    font-weight: lighter;
+
+}
+.forgot-password-text-new {
+    float: right;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+md-input-container{
+    padding: 2px 2px 2px !important;
+}
+span{
+        font-size: 12px;
+    font-family: 'Open Sans',Arial,sans-serif;
+}
+.md-primary{
+        background: #00bcd4!important;
+    color: #fff!important;
+    border-radius: 4px!important;
+    -moz-border-radius: 4px!important;
+    -webkit-border-radius: 4px!important;
+    cursor: pointer;
+    margin: 0;
+    min-height: 40px!important;
+    box-shadow: none!important;
+    text-transform: none!important;
+    padding: 0 15px!important;
 }

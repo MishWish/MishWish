@@ -1,40 +1,79 @@
 ﻿<div ng-controller="LoginCtrl as loginScope">
+    <!-- TOOL BAR -->
+    <md-toolbar class="main-header md-whiteframe-3dp">
+        <div class="md-toolbar-tools">
+            <div flex="15" layout="row" layout-align="center center">
+                <img src="../Css/img/Mish call logo.png" width="110" height="50" />
+            </div>
+            <span flex></span>
+
+            <div flex="5" layout="row" layout-align="center center">
+                <md-button class="md-icon-button">
+                    <ng-md-icon icon="account_circle" size="30"></ng-md-icon>
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
 
     <div class="flexbox-parent signup-background">
         <div layout="row" layout-align="center center">
 
             <div id="signup">
-                <div class="signup-screen" md-theme="docs-dark">
-                    <div layout="row">
-                        <img flex src="../Css/img/loginFlatAvatar.svg" width="80" height="80" class="user-image" alt="User Image">
+                <div class="login-screen">
+                    <div id="wallet-container-new" aria-hidden="false">
+                        <ul class="left">
+                            <div>
+                                <img flex src="../Css/img/loginFlatAvatar.svg" width="80" height="80" style="position:center;" class="user-image" alt="User Image">
+                            </div>
+
+                            <h5>Pay with your wallet</h5>
+                            <li>Pay your bills using your Wallet</li>
+                            <li>In case of refund, money will be credited to your wallet instantaneously</li>
+                            <li>Use your Wallet on other websites</li>
+                        </ul>
                     </div>
 
-                    <div class="space-bot text-center">
-                        <h1>Login</h1>
-                        <div class="divider"></div>
+                    <div id="login-container">
+                        <!--<div id="login-header-wrapper">
+
+                            <ul class="tab mp-web-new">
+                                <li class="selected ng-binding">
+                                    Log in
+                                </li>
+                                <li class="ng-binding ng-scope">Sign Up</li>
+                            </ul>
+                        </div>-->
+                        <!--<div layout="row">
+                            <img flex src="../Css/img/loginFlatAvatar.svg" width="80" height="80" class="user-image" alt="User Image">
+                        </div>-->
+                        <!--<div class="space-bot text-center">
+                            <h1>Login</h1>
+                            <div class="divider"></div>
+                        </div>-->
+
+                        <md-input-container class="md-block">
+                            <label>Email Address or Mobile number</label>
+                            <input ng-model="loginScope.LoginVM.UserName">
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input type="password" ng-model="loginScope.LoginVM.Password">
+                        </md-input-container>
+                        <span class="forgot-password-text-new">
+                            <a tabindex="0">Forgot Password? / Create a new password</a>
+                        </span>
+
+                        <!--<section layout="row" layout-gt="column" layout-align="center center">-->
+                        <!--<md-button ng-click="loginScope.LogIn(loginScope.LoginVM)" class="md-raised md-primary btn-new mt-20 md-button md-default-theme">Login</md-button>-->
+                        <md-button class="md-raised md-primary btn-new mt-20 md-button md-default-theme" style="margin-top:45px;" ng-click="mishWishScope.onSignUp()">Login</md-button>
+                        <!--<md-button ng-click="mishWishScope.onSignUp()" class="waves-effect waves-light btn cancel middle">Sign Up</md-button>-->
+                        <!--</section>-->
+
                     </div>
-
-                    <md-input-container class="md-block">
-                        <label>Email Address or Mobile number</label>
-                        <input ng-model="loginScope.LoginVM.UserName">
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <input type="password" ng-model="loginScope.LoginVM.Password">
-                    </md-input-container>
-
-                    <section layout="row" layout-gt="column" layout-align="center center">
-                        <md-button ng-click="loginScope.LogIn(loginScope.LoginVM)" class="waves-effect waves-light btn done center">Login</md-button>
-                        <md-button ng-click="mishWishScope.onSignUp()" class="waves-effect waves-light btn cancel middle">Sign Up</md-button>
-                    </section>
-
 
                 </div>
             </div>
-
-
         </div>
     </div>
-
 </div>

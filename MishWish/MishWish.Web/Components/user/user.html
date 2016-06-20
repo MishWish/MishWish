@@ -1,28 +1,43 @@
 ﻿<div ng-controller="UserCtrl as userScope">
 
-    <md-toolbar class="md-warn md-hue-1" md-scroll-shrink>
-        <div class="md-toolbar-tools">MishWish</div>
+    <!-- TOOL BAR -->
+    <md-toolbar class="main-header md-whiteframe-3dp">
+        <div class="md-toolbar-tools">
+            <div flex="15" layout="row" layout-align="center center">
+                <img src="../Css/img/Mish call logo.png" width="110" height="50" />
+            </div>
+            <span flex></span>
+
+            <div flex="5" layout="row" layout-align="center center">
+                <md-button class="md-icon-button">
+                    <ng-md-icon icon="account_circle" size="30"></ng-md-icon>
+                </md-button>
+            </div>
+        </div>
     </md-toolbar>
-    <div class="space-bot text-left">
-        <h3 style="text-align:center">Create your mish call account</h3>
-        <div class="divider"></div>
-    </div>
-    <div class="flexbox-parent">
-        <div layout="row" layout-align="end end">
+    <div class="flexbox-parent signup-background">
+        <div layout="row" layout-align="center center">
+
             <div id="signup">
-                <div class="signup-screen" md-theme="docs-dark">
-                    <div layout-gt-sm="row">
-
-                        <md-input-container class="md-block" flex-gt-sm>
-                            <label>First name</label>
-                            <input ng-model="userScope.UserVM.User.FirstName">
-                        </md-input-container>
-                        <md-input-container class="md-block" flex-gt-sm>
-                            <label>Last Name</label>
-                            <input ng-model="userScope.UserVM.User.LastName">
-                        </md-input-container>
-
+                <div class="registration-screen">
+                    <div id="wallet-container-new" aria-hidden="false">
+                        <ul class="registrationLeft">
+                           
+                        </ul>
                     </div>
+                    <div id="login-container">
+
+                        <div layout-gt-sm="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>First name</label>
+                                <input ng-model="userScope.UserVM.User.FirstName">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Last Name</label>
+                                <input ng-model="userScope.UserVM.User.LastName">
+                            </md-input-container>
+
+                        </div>
 
                     <md-input-container class="md-block">
                         <label>Mobile Number</label>
@@ -34,11 +49,11 @@
                         <input type="email" ng-model="userScope.UserVM.User.EmailAddress">
                     </md-input-container>
 
-                    <md-input-container class="md-block">
-                        <label>Date of Birth</label>
+                    <!--<md-input-container class="md-block">
+                        <label>Date of Birth</label>-->
                         <!--<input type="datetime" ng-model="userScope.UserVM.User.DOB">-->
-                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-                    </md-input-container>
+                        <!--<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                    </md-input-container>-->
 
                     <md-radio-group layout-gt-sm="row" ng-model="user.group1">
                         <md-radio-button value="Male" class="md-block" flex-sm-sm>Male</md-radio-button>
@@ -55,11 +70,11 @@
                         <input type="password" ng-model="userScope.UserVM.User.Re_Password">
                     </md-input-container>
 
-                    <section layout="row" layout-gt="column" layout-align="center center">
-                        <md-button ng-click="mishWishScope.onRegisterNewUser()" class="waves-effect waves-light btn done left">Proceed</md-button>
-                        <md-button class="waves-effect waves-light btn cancel middle">Cancel</md-button>
+                    <section layout="row" layout-gt="column" layout-align="center center" style="margin-top:45px;">
+                        <md-button ng-click="mishWishScope.onRegisterNewUser()" class="md-primary btn-block mt10 md-button md-default-theme" >Create your Wallet</md-button>
+                   
                     </section>
-
+                        </div>
                 </div>
             </div>
         </div>

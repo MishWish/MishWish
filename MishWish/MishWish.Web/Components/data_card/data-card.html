@@ -3,42 +3,41 @@
 <md-content layout-padding>
     <div>
         <form name="dataCardForm" class="formPadding">
-            <div class="formFmt">
-                <div class="mainLabel">
-                    <h3>Pay For Your Data Card</h3>
-                </div>
-                <div layout-gt-sm="row">
+            <div class="mainLabel">
+                <h3>Pay For Your Data Card</h3>
+            </div>
+            <div layout-gt-sm="row">
 
-                    <md-radio-group layout-gt-sm="row" ng-model="selectedCard">
-                        <md-radio-button value="Prepaid" class="md-block" flex-sm-sm>Prepaid Data Card</md-radio-button>
-                        <md-radio-button value="Postpaid" class="md-block" flex-gt-sm>Postpaid Data Card</md-radio-button>
-                    </md-radio-group>
+                <md-radio-group layout-gt-sm="row" ng-model="selectedCard">
+                    <md-radio-button value="Prepaid" class="md-block" flex-sm-sm>Prepaid Data Card</md-radio-button>
+                    <md-radio-button value="Postpaid" class="md-block" flex-gt-sm>Postpaid Data Card</md-radio-button>
+                </md-radio-group>
 
-                </div>
-                <div layout-gt-sm="row">
+            </div>
+            <div layout-gt-sm="row">
 
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Enter Data Card Number</label>
-                        <input ng-model="DataCardNumber">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Operator</label>
-                        <input ng-model="Operator">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Amount</label>
-                        <input ng-model="Amount">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <md-button class="md-raised md-primary">Proceed to Recharge</md-button>
-                    </md-input-container>
-                </div>
-                </div>
-                <div class="mainLabel">
-                    <h3>Browse Plans of Airtel</h3>
-                </div>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Enter Data Card Number</label>
+                    <input ng-model="DataCardNumber">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Operator</label>
+                    <input ng-model="Operator">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Amount</label>
+                    <input ng-model="Amount">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <md-button class="md-raised md-primary btn-new mt-20 md-button md-default-theme">Proceed to Recharge</md-button>
+                </md-input-container>
+            </div>
 
-</form>
+            <div class="mainLabel">
+                <h3>Browse Plans of Airtel</h3>
+            </div>
+
+        </form>
     </div>
 
 </md-content>
